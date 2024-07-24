@@ -3,6 +3,7 @@ import logo from "../../assets/Logo.png";
 import { LiaHeart } from "react-icons/lia";
 import { IoPersonOutline } from "react-icons/io5";
 import { SlBasket } from "react-icons/sl";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 interface navData {
   name: string;
@@ -20,9 +21,12 @@ const NavBar = () => {
   return (
     <>
       <Box bg="primaryColor" h="132px">
-        <Text padding="2vmax 0 0.5vmax 10vmax" color="#fff" fontSize="sm">
-          Maryam's features online shopping
-        </Text>
+        <HStack justifyContent="space-between" padding="2vmax 0 0.5vmax 10vmax">
+          <Text color="#fff" fontSize="sm">
+            Maryam's features online shopping
+          </Text>
+          <ColorModeSwitch />
+        </HStack>
         <Box
           bg="white"
           w="90%"
@@ -47,7 +51,7 @@ const NavBar = () => {
             </HStack>
             <HStack
               spacing="1vmax"
-              fontSize={{ md: "18px",lg:'20px', xl: "24px" }}
+              fontSize={{ md: "18px", lg: "20px", xl: "24px" }}
               paddingRight="1vw"
             >
               <LiaHeart />
