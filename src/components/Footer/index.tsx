@@ -6,18 +6,26 @@ import { FaWhatsapp } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <Box bg="primaryColor" h="100%" alignContent="center" color="white">
+    <Box bg="primaryColor" paddingY=".6rem" alignContent="center" color="white">
       <HStack
         justifyContent="space-between"
         paddingX="3vw"
         fontSize={{ lg: "2xl", md: "xl" }}
       >
         <Text>Plantify</Text>
-        <HStack as={Link} href="contact-us" spacing={3} _hover={{cursor:''}}>
-          <TbPhone />
-          <RxTwitterLogo />
-          <AiOutlineInstagram />
-          <FaWhatsapp />
+        <HStack spacing={3}>
+          <Link href="contact-us" _hover={{ transform: "scale(1.5)" }}>
+            <TbPhone />
+          </Link>
+          <Link href="contact-us" _hover={{ transform: "scale(1.5)" }}>
+            <RxTwitterLogo />
+          </Link>
+          <Link href="contact-us" _hover={{ transform: "scale(1.5)" }}>
+            <AiOutlineInstagram />
+          </Link>
+          <Link href="contact-us" _hover={{ transform: "scale(1.5)" }}>
+            <FaWhatsapp />
+          </Link>
         </HStack>
       </HStack>
     </Box>

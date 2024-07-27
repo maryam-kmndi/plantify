@@ -18,6 +18,14 @@ const theme = extendTheme({
     heading: `'roboto','open-sans'`,
     body: `'roboto','open-sans'`,
   },
+  breakpoints: {
+    base: "0em",
+    xs: "320px",
+    sm: "425px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1440px",
+  },
 });
 
 export default theme;

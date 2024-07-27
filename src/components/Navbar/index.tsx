@@ -51,15 +51,20 @@ const NavBar = () => {
           <Box
             bg="white"
             w="90%"
-            h="144px"
             borderRadius="75"
             margin="0 auto "
             boxShadow="lg"
             marginTop={{ xl: "0", lg: "1vw", md: "1vw" }}
+            py="1.7rem"
           >
             <HStack paddingY={3} paddingX={8} justifyContent={"space-between"}>
               <HStack spacing="3.5vmax">
-                <Image src={logo} boxSize="120px" objectFit="scale-down" />
+                <Image
+                  src={logo}
+                  w="18%"
+                  aspectRatio="16/5"
+                  objectFit="contain"
+                />
                 {navData.map((nav) => (
                   <Link
                     href={nav.href}

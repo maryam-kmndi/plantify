@@ -1,17 +1,26 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Hero from "./components/Hero";
 
 function App() {
   return (
     <Grid
       templateAreas={`'header' 'main' 'footer'`}
-      templateRows={"300px 900px 50px"}
     >
-      <GridItem area={"header"}><NavBar/></GridItem>
-      <GridItem area={"main"}>main</GridItem>
+      <GridItem area={"header"}>
+        <NavBar />
+      </GridItem>
+      <GridItem
+        minHeight="100dvh"
+        marginTop={{ xl: "6vmax", lg: "8vmax", md: "10vmax" }}
+        marginBottom={{ xl: "6vmax", lg: "8vmax", md: "10vmax",base:"5vmax" }}
+        area={"main"}
+      >
+        <Hero />
+      </GridItem>
       <GridItem area={"footer"}>
-        <Footer/>
+        <Footer />
       </GridItem>
     </Grid>
   );
