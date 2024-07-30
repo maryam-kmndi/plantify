@@ -1,6 +1,8 @@
 import { extendTheme, ThemeConfig } from "@chakra-ui/react";
 import "@fontsource/roboto";
 import "@fontsource/open-sans";
+import "@openfonts/dynalight_latin";
+import "@openfonts/dynalight_latin-ext";
 
 const config: ThemeConfig = {
   initialColorMode: "light",

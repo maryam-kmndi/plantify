@@ -27,6 +27,7 @@ const Btn = ({
       backgroundColor={bgColor}
       color={color}
       borderColor={borderColor}
+      borderWidth='.1rem'
       onClick={onClick}
       fontSize={{ xl: "1.2rem", lg: "1rem", sm: ".9rem", base: ".7rem" }}
       fontWeight={200}

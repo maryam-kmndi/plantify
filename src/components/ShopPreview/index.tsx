@@ -2,8 +2,8 @@ import {
   AbsoluteCenter,
   Box,
   Divider,
+  Heading,
   HStack,
-  Text,
   VStack,
 } from "@chakra-ui/react";
 import { CgHeart } from "react-icons/cg";
@@ -14,9 +14,14 @@ const ShopPreview = () => {
   return (
     <>
       <VStack gap="0">
-        <Text textAlign="center" fontSize="2.1rem" as="b" mb="1rem">
+        <Heading
+          textAlign="center"
+          fontSize={{ xl: "2.5rem", lg: "2rem",md:'1.8rem', base: "1.3rem" }}
+          as="b"
+          mb="1rem"
+        >
           Top-Sales <br /> Products
-        </Text>
+        </Heading>
         <Divider w="20%" />
         <Box position="relative">
           <AbsoluteCenter bg="white" px="1rem" fontSize="1.2rem">
@@ -31,6 +36,7 @@ const ShopPreview = () => {
           <ShopBtn children="Featured" />
           <ShopBtn children="Best Sellers" />
         </HStack>
+        <ShopCarts />
       </VStack>
     </>
   );

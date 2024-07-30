@@ -11,8 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import hero from "../assets/hero.png";
-import "@openfonts/dynalight_latin";
-import "@openfonts/dynalight_latin-ext";
+
 import Btn from "./Btn";
 
 const Hero = () => {
