@@ -7,8 +7,8 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import Btn from "./Btn";
-import photo from "../assets/contactUs.png";
+import Btn from "../Btn";
+import photo from "../../assets/contactUs.png";
 
 const ContactUsPreview = () => {
   return (
@@ -18,6 +18,7 @@ const ContactUsPreview = () => {
       textAlign={{ base: "center", md: "start" }}
       bg="primaryColor"
       color="white"
+      mt={{md:'10rem'}}
     >
       <GridItem area="first">
         <VStack alignItems="start" px="2rem" pt="2rem">

@@ -10,9 +10,10 @@ import {
   Show,
   Text,
 } from "@chakra-ui/react";
-import hero from "../assets/hero.png";
 
-import Btn from "./Btn";
+import hero from "../../assets/hero.png";
+
+import Btn from "../Btn";
 
 const Hero = () => {
   const circles = [1, 2, 3];

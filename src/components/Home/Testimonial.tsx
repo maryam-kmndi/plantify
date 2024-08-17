@@ -9,7 +9,7 @@ import {
   StatLabel,
   Text,
 } from "@chakra-ui/react";
-import photo from "../assets/testimonial.jpg";
+import photo from "../../assets/testimonial.jpg";
 import { TfiLayoutLineSolid } from "react-icons/tfi";
 import { BiSolidQuoteRight } from "react-icons/bi";
 const Testimonial = () => {

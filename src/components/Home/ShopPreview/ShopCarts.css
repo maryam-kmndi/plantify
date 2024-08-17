@@ -1,0 +1,8 @@
+.hidden {
+  visibility: hidden;
+}
+
+.card:hover .hidden {
+  visibility: visible;
+  transition: all 20s ease-in;
+}

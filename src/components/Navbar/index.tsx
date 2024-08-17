@@ -5,6 +5,7 @@ import { IoPersonOutline } from "react-icons/io5";
 import { SlBasket } from "react-icons/sl";
 import ColorModeSwitch from "./ColorModeSwitch";
 import NavMenu from "./NavMenu";
+import { NavLink } from "react-router-dom";
 
 export interface NavData {
   name: string;
@@ -18,7 +19,7 @@ const NavBar = () => {
     fontWeight: "Bold",
   };
   const navData: NavData[] = [
-    { name: "Home", href: "/home" },
+    { name: "Home", href: "/" },
     { name: "Plants", href: "/plants" },
     { name: "Pots & Accessories", href: "/pots-accessories" },
     { name: "Contact Us", href: "/contact-us" },
@@ -66,14 +67,14 @@ const NavBar = () => {
                   objectFit="contain"
                 />
                 {navData.map((nav) => (
-                  <Link
-                    href={nav.href}
-                    _hover={hover}
-                    key={nav.href}
-                    fontSize={{ md: "sm", lg: "md", xl: "xl" }}
-                  >
-                    {nav.name}
-                  </Link>
+                  <NavLink to={nav.href} key={nav.href}>
+                    <Text
+                      _hover={hover}
+                      fontSize={{ md: "sm", lg: "md", xl: "xl" }}
+                    >
+                      {nav.name}
+                    </Text>
+                  </NavLink>
                 ))}
               </HStack>
               <HStack
