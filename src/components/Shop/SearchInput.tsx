@@ -24,6 +24,7 @@ const SearchInput = ({ onSearch }: Props) => {
         <Input
           focusBorderColor="primaryColor"
           size="lg"
+          fontSize={{ base: "sm", md: "md" }}
           ref={ref}
           borderRadius={30}
           placeholder="Search plants..."
