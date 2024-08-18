@@ -7,7 +7,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: [{ path: "", element: <HomePage /> }],
+    children: [
+      { path: "", element: <HomePage /> },
+      { path: "/plants", element: <PlantsPage /> },
+    ],
   },
 ]);
 export default router;
