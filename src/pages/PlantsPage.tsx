@@ -5,6 +5,7 @@ import SortSelector from "../components/Shop/SortSelector";
 import LevelSelector from "../components/Shop/LevelSelector";
 import PriceSelector from "../components/Shop/PriceSelector";
 import ShopCarts from "../components/Home/ShopPreview/ShopCarts";
+import RateSelector from "../components/Shop/RateSelector";
 
 const PlantsPage = () => {
   return (
@@ -20,6 +21,8 @@ const PlantsPage = () => {
             <LevelSelector />
             <Divider />
             <PriceSelector />
+            <Divider />
+            <RateSelector />
           </GridItem>
           <GridItem>
             <Divider orientation="vertical" />
@@ -33,9 +36,7 @@ const PlantsPage = () => {
             <GridItem>
               <SortSelector />
             </GridItem>
-            <GridItem>
-              {/* <ShopCarts /> */}
-            </GridItem>
+            <GridItem>{/* <ShopCarts /> */}</GridItem>
           </Grid>
         </GridItem>
       </Grid>
