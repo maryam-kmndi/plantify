@@ -1,4 +1,10 @@
-import { Input, InputGroup, InputLeftElement, Text } from "@chakra-ui/react";
+import {
+  Container,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Text,
+} from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 
@@ -11,40 +17,42 @@ const SearchInput = ({ onSearch }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
 
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-        if (ref.current && onSearch) onSearch(ref.current.value);
-      }}
-    >
-      <InputGroup>
-        <InputLeftElement pt=".5rem" pl=".2rem" pointerEvents="none">
-          <BsSearch color="gray" size="1.5rem" />
-        </InputLeftElement>
-        <Input
-          focusBorderColor="primaryColor"
-          size="lg"
-          fontSize={{ base: "sm", md: "md" }}
-          ref={ref}
-          borderRadius={30}
-          placeholder="Search plants..."
-          variant="filled"
-          bgColor="cartsColor"
-          color="gray"
-          onChange={(event) => setValue(event.target.value)}
-        />
-      </InputGroup>
-      {value && (
-        <Text
-          fontSize={{ base: "xs", md: "sm" }}
-          py=".5rem"
-          pl="1.5rem"
-          color="gray.400"
-        >
-          Search result for {value}
-        </Text>
-      )}
-    </form>
+    <Container my="1.5rem" maxW='100%'>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          if (ref.current && onSearch) onSearch(ref.current.value);
+        }}
+      >
+        <InputGroup>
+          <InputLeftElement pt=".5rem" pl=".5rem" pointerEvents="none">
+            <BsSearch color="gray" size="1.5rem" />
+          </InputLeftElement>
+          <Input
+            focusBorderColor="primaryColor"
+            size="lg"
+            fontSize={{ base: "sm", md: "md" }}
+            ref={ref}
+            borderRadius={30}
+            placeholder="Search plants..."
+            variant="filled"
+            bgColor="cartsColor"
+            color="gray"
+            onChange={(event) => setValue(event.target.value)}
+          />
+        </InputGroup>
+        {value && (
+          <Text
+            fontSize={{ base: "xs", md: "sm" }}
+            py=".5rem"
+            pl="1.5rem"
+            color="gray.400"
+          >
+            Search result for {value}
+          </Text>
+        )}
+      </form>
+    </Container>
   );
 };
 

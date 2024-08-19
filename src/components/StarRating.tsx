@@ -26,7 +26,7 @@ const StarRating = () => {
             ></Radio>
             <FaStar
               cursor={"pointer"}
-              size={24}
+              size={22}
               // transition="color 200ms"
             />
           </Box>

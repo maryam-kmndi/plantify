@@ -17,14 +17,15 @@ const RateSelector = () => {
   return (
     <VStack align="left" color="textColor" my="1.5rem" pl="1rem">
       <Text>Rating</Text>
-      <HStack spacing={3}>
+      <HStack>
         <StarRating />
         <Menu>
           <MenuButton
-            fontSize=".8rem"
+            fontSize={{ base: ".6rem", lg: "1rem" }}
             color="gray"
             as={Button}
             rightIcon={<BsChevronDown />}
+            px=".5rem"
           >
             {label ? "Above" : "Below"}
           </MenuButton>

@@ -13,7 +13,7 @@ const ShopBtn = ({ children, onClick }: Props) => {
       fontWeight={200}
       borderRadius={75}
       shadow="lg"
-      w={{ xl: "12rem", md: "9rem", sm: "7rem", base: "5.4rem" }}
+      w={{ xl: "12rem", md: "8.5rem", sm: "7rem", base: "5.4rem" }}
       h={{ xl: "3.6rem", md: "3.3rem", sm: "2rem", base: "1.5rem" }}
       py="1.3rem"
       bgColor="cartsColor"

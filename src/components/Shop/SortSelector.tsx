@@ -45,6 +45,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
       <Show breakpoint="(max-width: 767px)">
         <Menu>
           <MenuButton
+            ml="1rem"
             as={Button}
             bg="cartsColor"
             color="textColor"

@@ -8,10 +8,10 @@ interface Props {
 const FormBox = ({ label, value }: Props) => {
   return (
     <FormControl>
-      <HStack spacing={5}>
+      <HStack spacing={{ xl: "5", lg: "3",md:"1.5" }}>
         <FormLabel
           display="grid"
-          w="6rem"
+          w="5rem"
           h="3rem"
           bg="cartsColor"
           borderRadius={5}
