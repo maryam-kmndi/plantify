@@ -9,8 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import ShopBtn from "../Home/ShopPreview/ShopBtn";
-import { BsChevronDown } from "react-icons/bs";
-
+import { FiChevronDown } from "react-icons/fi";
 interface Props {
   onSelectSortOrder?: (sortOrder: string) => void;
   sortOrder?: string;
@@ -45,14 +44,14 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
       <Show breakpoint="(max-width: 767px)">
         <Menu>
           <MenuButton
-            ml="1rem"
+            mx="1rem"
             as={Button}
             bg="cartsColor"
             color="textColor"
             borderRadius={75}
-            rightIcon={<BsChevronDown />}
+            rightIcon={<FiChevronDown />}
           >
-            Order by:
+            Order by
           </MenuButton>
           <MenuList>
             {sortOrders.map((order) => (

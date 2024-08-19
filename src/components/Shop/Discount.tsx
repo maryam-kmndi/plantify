@@ -12,7 +12,7 @@ import frame from "../../assets/discountFrame.png";
 const Discount = () => {
   return (
     <Container my="2.5rem">
-      <Box display="grid" justifyItems="center" alignItems="center">
+      <Box pos='relative' display="grid" justifyItems="center" alignItems="center">
         <Image src={frame} />
         <VStack pos="absolute" textAlign="center" color="white">
           <Heading fontSize="1.3rem" textShadow="1px 1px #000">

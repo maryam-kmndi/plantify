@@ -1,18 +1,14 @@
-import { Divider, Grid, GridItem, Heading, Hide } from "@chakra-ui/react";
+import { Divider, Grid, GridItem, Show } from "@chakra-ui/react";
 import SearchInput from "../components/Shop/SearchInput";
 import ShopHero from "../components/Shop/ShopHero";
 import SortSelector from "../components/Shop/SortSelector";
-import LevelSelector from "../components/Shop/LevelSelector";
-import PriceSelector from "../components/Shop/PriceSelector";
-import ShopCarts from "../components/Home/ShopPreview/ShopCarts";
-import RateSelector from "../components/Shop/RateSelector";
-import Discount from "../components/Shop/Discount";
+import Filter from "../components/Shop/Filter";
+import FilterDrawer from "../components/Shop/FilterDrawer";
 
 const PlantsPage = () => {
   return (
     <>
       <ShopHero />
-      {/* <Divider mt="1.5rem" /> */}
       <Grid
         templateColumns={{
           base: "1fr",
@@ -21,34 +17,21 @@ const PlantsPage = () => {
           xl: "19% 1% 80%",
         }}
       >
-        <Hide breakpoint="(max-width: 767px)">
+        <Show breakpoint="(min-width: 768px)">
           <GridItem>
-            <Heading fontSize="1.5rem" color="textColor" my="1rem" pl="1rem">
-              Filter
-            </Heading>
-            <Divider />
-            <LevelSelector />
-            <Divider />
-            <PriceSelector />
-            <Divider />
-            <RateSelector />
-            <Divider />
-            <Discount />
+            <Filter />
           </GridItem>
           <GridItem>
             <Divider orientation="vertical" />
           </GridItem>
-        </Hide>
+        </Show>
         <GridItem px="1rem">
-          <Grid templateRows="100px 50px 1fr">
-            <GridItem>
-              <SearchInput />
-            </GridItem>
-            <GridItem>
-              <SortSelector />
-            </GridItem>
-            <GridItem>{/* <ShopCarts /> */}</GridItem>
-          </Grid>
+          <SearchInput />
+          <SortSelector />
+          <Show breakpoint="(max-width: 767px)">
+            <FilterDrawer />
+          </Show>
+          {/* <ShopCarts /> */}
         </GridItem>
       </Grid>
     </>
