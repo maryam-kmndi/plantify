@@ -6,12 +6,13 @@ import LevelSelector from "../components/Shop/LevelSelector";
 import PriceSelector from "../components/Shop/PriceSelector";
 import ShopCarts from "../components/Home/ShopPreview/ShopCarts";
 import RateSelector from "../components/Shop/RateSelector";
+import Discount from "../components/Shop/Discount";
 
 const PlantsPage = () => {
   return (
     <>
       <ShopHero />
-      <Grid my="2rem" templateColumns={{ base: "1fr", md: "19% 1% 80%" }}>
+      <Grid my="1.5rem" templateColumns={{ base: "1fr", md: "19% 1% 80%" }}>
         <Hide breakpoint="(max-width: 767px)">
           <GridItem>
             <Heading fontSize="1.5rem" color="textColor" my="1rem" pl="1rem">
@@ -23,6 +24,8 @@ const PlantsPage = () => {
             <PriceSelector />
             <Divider />
             <RateSelector />
+            <Divider/>
+            <Discount/>
           </GridItem>
           <GridItem>
             <Divider orientation="vertical" />
