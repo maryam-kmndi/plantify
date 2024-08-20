@@ -63,15 +63,15 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
           >
             Sort
           </Text>
-          <ShopBtn onClick={() => sortPlants(sortOrders[0].value)}>
-            Care Level
-          </ShopBtn>
-          <ShopBtn onClick={() => sortPlants(sortOrders[1].value)}>
-            Price
-          </ShopBtn>
-          <ShopBtn onClick={() => sortPlants(sortOrders[2].value)}>
-            Rate
-          </ShopBtn>
+          {sortOrders.map((sort) => (
+            <ShopBtn
+              key={sort.value}
+              children={sort.value}
+              onClick={() => {
+                sortPlants(sort.value);
+              }}
+            />
+          ))}
         </HStack>
       </Show>
 

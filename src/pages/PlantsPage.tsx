@@ -6,7 +6,7 @@ import Filter from "../components/Shop/Filter";
 import FilterDrawer from "../components/Shop/FilterDrawer";
 import ShopCarts from "../components/Home/ShopPreview/ShopCarts";
 import { plantDataType, plantsList } from "../data/plants";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const PlantsPage = () => {
   const [renderSortData, setRenderSortData] =
@@ -49,7 +49,11 @@ const PlantsPage = () => {
           <Show breakpoint="(max-width: 767px)">
             <FilterDrawer />
           </Show>
-          <ShopCarts data={renderSearchData ?? renderSortData} />
+          <ShopCarts
+            fontSize=".9rem"
+            w="98%"
+            data={renderSearchData ?? renderSortData}
+          />
         </GridItem>
       </Grid>
     </>

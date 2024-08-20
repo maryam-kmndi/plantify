@@ -24,6 +24,10 @@ const ShopBtn = ({ children, onClick }: Props) => {
         bgColor: "primaryColor",
         color: "white",
       }}
+      _focus={{
+        bg: "primaryColor",
+        color: "white",
+      }}
     >
       {children}
     </Button>

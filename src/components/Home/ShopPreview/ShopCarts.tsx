@@ -16,15 +16,17 @@ import StarRate from "./StarRate";
 
 interface Props {
   data?: plantDataType[] | undefined;
+  w?: string;
+  fontSize?: string;
 }
 
-const ShopCarts = ({ data }: Props) => {
+const ShopCarts = ({ data, fontSize = "1rem",w='80%' }: Props) => {
   const renderData: plantDataType[] = data ?? plantsList;
-  
+
   return (
     <Grid
       mt="1.5rem"
-      w={{ base: "60%", md: "80%" }}
+      width={{ base: "60%", md: w }}
       mx="auto"
       gap="1.8rem"
       templateColumns={{
@@ -66,11 +68,9 @@ const ShopCarts = ({ data }: Props) => {
               />
               <Text
                 fontSize={{
-                  base: ".9rem",
-                  sm: "1rem",
-                  md: ".9rem",
-                  lg: "1rem",
-                  xl: "1.2rem",
+                  base: "1rem",
+                  lg: fontSize,
+                  xl: "1.4rem",
                 }}
               >
                 {plant.name}
@@ -78,10 +78,7 @@ const ShopCarts = ({ data }: Props) => {
               <StarRate rate={plant.rate} />
               <Text
                 fontSize={{
-                  base: ".7rem",
-                  sm: ".9rem",
-                  md: ".7rem",
-                  lg: ".8rem",
+                  base: ".8rem",
                   xl: "1rem",
                 }}
                 py=".5rem"
