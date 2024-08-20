@@ -6,16 +6,24 @@ import Filter from "../components/Shop/Filter";
 import FilterDrawer from "../components/Shop/FilterDrawer";
 import ShopCarts from "../components/Home/ShopPreview/ShopCarts";
 import { plantDataType, plantsList } from "../data/plants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const PlantsPage = () => {
-  const [renderData, setRenderData] = useState<plantDataType[]>([...plantsList]);
-  const sortPlants = (sortResult: plantDataType[]) => {
-    setRenderData([]);
-    console.log(renderData);
+  const [renderSortData, setRenderSortData] =
+    useState<plantDataType[]>(plantsList);
 
-    setRenderData([...sortResult]);
+  const [renderSearchData, setRenderSearchData] = useState<
+    plantDataType[] | undefined
+  >(undefined);
+
+  const sortPlants = (sortResult: plantDataType[]) => {
+    setRenderSortData([...sortResult]);
   };
+
+  const searchPlants = (searchResult: plantDataType[] | undefined) => {
+    setRenderSearchData(searchResult);
+  };
+
   return (
     <>
       <ShopHero />
@@ -36,12 +44,12 @@ const PlantsPage = () => {
           </GridItem>
         </Show>
         <GridItem px="1rem">
-          <SearchInput />
+          <SearchInput onSearch={searchPlants} />
           <SortSelector onSelectSortOrder={sortPlants} />
           <Show breakpoint="(max-width: 767px)">
             <FilterDrawer />
           </Show>
-          <ShopCarts data={renderData} />
+          <ShopCarts data={renderSearchData ?? renderSortData} />
         </GridItem>
       </Grid>
     </>

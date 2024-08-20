@@ -43,6 +43,7 @@ const ShopCarts = ({ data }: Props) => {
             position="relative"
             _hover={{
               transform: "scale(1.05)",
+              zIndex: "2",
               transition: "transform .15s ease-in",
             }}
           >
