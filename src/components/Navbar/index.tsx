@@ -8,6 +8,7 @@ import NavMenu from "./NavMenu";
 import { NavLink } from "react-router-dom";
 
 export interface NavData {
+  id: number;
   name: string;
   href: string;
 }
@@ -19,10 +20,10 @@ const NavBar = () => {
     fontWeight: "Bold",
   };
   const navData: NavData[] = [
-    { name: "Home", href: "/" },
-    { name: "Plants", href: "/plants" },
-    { name: "Pots & Accessories", href: "/pots-accessories" },
-    { name: "Contact Us", href: "/contact-us" },
+    { id: 1, name: "Home", href: "/" },
+    { id: 2, name: "Plants", href: "/plants" },
+    { id: 3, name: "Pots & Accessories", href: "/pots-accessories" },
+    { id: 4, name: "Contact Us", href: "/contact-us" },
   ];
   return (
     <>
@@ -67,8 +68,9 @@ const NavBar = () => {
                   objectFit="contain"
                 />
                 {navData.map((nav) => (
-                  <NavLink to={nav.href} key={nav.href}>
+                  <NavLink to={nav.href} key={nav.id}>
                     <Text
+                      key={nav.id}
                       _hover={hover}
                       fontSize={{ md: "sm", lg: "md", xl: "xl" }}
                     >

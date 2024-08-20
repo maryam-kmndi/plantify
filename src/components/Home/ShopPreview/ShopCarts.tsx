@@ -20,6 +20,7 @@ interface Props {
 
 const ShopCarts = ({ data }: Props) => {
   const renderData: plantDataType[] = data ?? plantsList;
+  
   return (
     <Grid
       mt="1.5rem"
@@ -33,7 +34,7 @@ const ShopCarts = ({ data }: Props) => {
       }}
     >
       {renderData?.map((plant) => (
-        <GridItem>
+        <GridItem key={plant.id}>
           <Card
             className="card"
             bg="cartsColor"
