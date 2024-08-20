@@ -9,6 +9,7 @@ import {
 import { CgHeart } from "react-icons/cg";
 import ShopBtn from "./ShopBtn";
 import ShopCarts from "./ShopCarts";
+import { plantsList } from "../../../data/plants";
 
 const ShopPreview = () => {
   return (
@@ -16,7 +17,7 @@ const ShopPreview = () => {
       <VStack gap="0">
         <Heading
           textAlign="center"
-          fontSize={{ xl: "2.5rem", lg: "2rem",md:'1.8rem', base: "1.3rem" }}
+          fontSize={{ xl: "2.5rem", lg: "2rem", md: "1.8rem", base: "1.3rem" }}
           as="b"
           mb="1rem"
         >
@@ -36,7 +37,7 @@ const ShopPreview = () => {
           <ShopBtn children="Featured" />
           <ShopBtn children="Best Sellers" />
         </HStack>
-        <ShopCarts />
+        <ShopCarts data={plantsList.slice(0, 4)} />
       </VStack>
     </>
   );

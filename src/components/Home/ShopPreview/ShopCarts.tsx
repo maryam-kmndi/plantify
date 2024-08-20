@@ -7,7 +7,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { plantsList } from "../../../data/plants";
+import { plantDataType, plantsList } from "../../../data/plants";
 import { SlBasket } from "react-icons/sl";
 import { LiaHeart } from "react-icons/lia";
 import HowerCircle from "./HowerCircle";
@@ -15,10 +15,11 @@ import "./ShopCarts.css";
 import StarRate from "./StarRate";
 
 interface Props {
-  plantsNum?: number;
+  data?: plantDataType[] | undefined;
 }
 
-const ShopCarts = ({ plantsNum = 4 }: Props) => {
+const ShopCarts = ({ data }: Props) => {
+  const renderData: plantDataType[] = data ?? plantsList;
   return (
     <Grid
       mt="1.5rem"
@@ -31,7 +32,7 @@ const ShopCarts = ({ plantsNum = 4 }: Props) => {
         lg: "repeat(4,1fr)",
       }}
     >
-      {plantsList?.data?.slice(0, plantsNum).map((plant) => (
+      {renderData?.map((plant) => (
         <GridItem>
           <Card
             className="card"

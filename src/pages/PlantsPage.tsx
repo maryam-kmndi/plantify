@@ -5,8 +5,17 @@ import SortSelector from "../components/Shop/SortSelector";
 import Filter from "../components/Shop/Filter";
 import FilterDrawer from "../components/Shop/FilterDrawer";
 import ShopCarts from "../components/Home/ShopPreview/ShopCarts";
+import { plantDataType, plantsList } from "../data/plants";
+import { useState } from "react";
 
 const PlantsPage = () => {
+  const [renderData, setRenderData] = useState<plantDataType[]>([...plantsList]);
+  const sortPlants = (sortResult: plantDataType[]) => {
+    setRenderData([]);
+    console.log(renderData);
+
+    setRenderData([...sortResult]);
+  };
   return (
     <>
       <ShopHero />
@@ -28,11 +37,11 @@ const PlantsPage = () => {
         </Show>
         <GridItem px="1rem">
           <SearchInput />
-          <SortSelector />
+          <SortSelector onSelectSortOrder={sortPlants} />
           <Show breakpoint="(max-width: 767px)">
             <FilterDrawer />
           </Show>
-          <ShopCarts plantsNum={16}/>
+          <ShopCarts data={renderData} />
         </GridItem>
       </Grid>
     </>

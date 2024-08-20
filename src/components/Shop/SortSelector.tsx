@@ -10,20 +10,48 @@ import {
 } from "@chakra-ui/react";
 import ShopBtn from "../Home/ShopPreview/ShopBtn";
 import { FiChevronDown } from "react-icons/fi";
+import { plantDataType, plantsList } from "../../data/plants";
 interface Props {
-  onSelectSortOrder?: (sortOrder: string) => void;
-  sortOrder?: string;
+  onSelectSortOrder: (arg: plantDataType[]) => void;
 }
-const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
-  const sortOrders = [
-    { value: "", label: "Care Level" },
+interface sortOrder {
+  value: "price" | "care level" | "rate";
+  label: string;
+}
+type sortFunc = (sortType: "price" | "care level" | "rate") => void;
+
+const SortSelector = ({ onSelectSortOrder }: Props) => {
+  const sortOrders: sortOrder[] = [
+    { value: "care level", label: "Care Level" },
     { value: "price", label: "Price" },
     { value: "rate", label: "Rate" },
   ];
+  let clonePlants = [...plantsList];
 
-  const currentSortOrder = sortOrders.find(
-    (order) => order.value === sortOrder
-  );
+  const sortPlants: sortFunc = (sortType) => {
+    if (sortType === "price") {
+      const priceSort: plantDataType[] = clonePlants.sort((a, b) => {
+        const priceA = parseFloat(a.price.replace("$", ""));
+        const priceB = parseFloat(b.price.replace("$", ""));
+        return priceA - priceB;
+      });
+
+      onSelectSortOrder(priceSort);
+    } else if (sortType === "care level") {
+      const sortCareLvlData = clonePlants.sort((a, b) => {
+        return a.care_level - b.care_level;
+      });
+
+      onSelectSortOrder(sortCareLvlData);
+    } else if (sortType === "rate") {
+      const rateSort = clonePlants.sort((a, b) => {
+        return a.rate - b.rate;
+      });
+
+      onSelectSortOrder(rateSort);
+    }
+    clonePlants = plantsList;
+  };
   return (
     <>
       <Show above="md">
@@ -35,9 +63,15 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
           >
             Sort
           </Text>
-          <ShopBtn>Care Level</ShopBtn>
-          <ShopBtn>Price</ShopBtn>
-          <ShopBtn>Rate</ShopBtn>
+          <ShopBtn onClick={() => sortPlants(sortOrders[0].value)}>
+            Care Level
+          </ShopBtn>
+          <ShopBtn onClick={() => sortPlants(sortOrders[1].value)}>
+            Price
+          </ShopBtn>
+          <ShopBtn onClick={() => sortPlants(sortOrders[2].value)}>
+            Rate
+          </ShopBtn>
         </HStack>
       </Show>
 

@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <VStack gap="4rem">
       <Hero />
-      <ShopPreview />
+      <ShopPreview/>
       <ContactUsPreview />
       <Testimonial />
     </VStack>
