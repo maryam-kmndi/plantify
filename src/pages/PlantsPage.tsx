@@ -4,6 +4,7 @@ import ShopHero from "../components/Shop/ShopHero";
 import SortSelector from "../components/Shop/SortSelector";
 import Filter from "../components/Shop/Filter";
 import FilterDrawer from "../components/Shop/FilterDrawer";
+import ShopCarts from "../components/Home/ShopPreview/ShopCarts";
 
 const PlantsPage = () => {
   return (
@@ -13,7 +14,7 @@ const PlantsPage = () => {
         templateColumns={{
           base: "1fr",
           md: "28% 1% 71%",
-          lg: "24% 1% 75%",
+          lg: "21% 1% 78%",
           xl: "19% 1% 80%",
         }}
       >
@@ -31,7 +32,7 @@ const PlantsPage = () => {
           <Show breakpoint="(max-width: 767px)">
             <FilterDrawer />
           </Show>
-          {/* <ShopCarts /> */}
+          <ShopCarts plantsNum={16}/>
         </GridItem>
       </Grid>
     </>

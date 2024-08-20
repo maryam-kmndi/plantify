@@ -12,7 +12,13 @@ import { SlBasket } from "react-icons/sl";
 import { LiaHeart } from "react-icons/lia";
 import HowerCircle from "./HowerCircle";
 import "./ShopCarts.css";
-const ShopCarts = () => {
+import StarRate from "./StarRate";
+
+interface Props {
+  plantsNum?: number;
+}
+
+const ShopCarts = ({ plantsNum = 4 }: Props) => {
   return (
     <Grid
       mt="1.5rem"
@@ -25,7 +31,7 @@ const ShopCarts = () => {
         lg: "repeat(4,1fr)",
       }}
     >
-      {plantsList?.data?.map((plant) => (
+      {plantsList?.data?.slice(0, plantsNum).map((plant) => (
         <GridItem>
           <Card
             className="card"
@@ -66,6 +72,7 @@ const ShopCarts = () => {
               >
                 {plant.name}
               </Text>
+              <StarRate rate={plant.rate} />
               <Text
                 fontSize={{
                   base: ".7rem",
