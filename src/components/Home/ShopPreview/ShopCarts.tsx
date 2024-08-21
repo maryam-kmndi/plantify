@@ -13,6 +13,7 @@ import { LiaHeart } from "react-icons/lia";
 import HowerCircle from "./HowerCircle";
 import "./ShopCarts.css";
 import StarRate from "./StarRate";
+import { Link } from "react-router-dom";
 
 interface Props {
   data?: plantDataType[] | undefined;
@@ -20,7 +21,7 @@ interface Props {
   fontSize?: string;
 }
 
-const ShopCarts = ({ data, fontSize = "1rem",w='80%' }: Props) => {
+const ShopCarts = ({ data, fontSize = "1rem", w = "80%" }: Props) => {
   const renderData: plantDataType[] = data ?? plantsList;
 
   return (
@@ -73,7 +74,7 @@ const ShopCarts = ({ data, fontSize = "1rem",w='80%' }: Props) => {
                   xl: "1.4rem",
                 }}
               >
-                {plant.name}
+                <Link to={"/plants/" + plant.slug}>{plant.name}</Link>
               </Text>
               <StarRate rate={plant.rate} />
               <Text

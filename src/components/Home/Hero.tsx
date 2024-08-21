@@ -32,8 +32,8 @@ const Hero = () => {
             <Show above="md">
               <HStack position="relative" bottom="1.5vw" spacing="2vw">
                 <Divider />
-                {circles.map((c) => (
-                  <Circle size="3.5vmax" bg="#BDDF8E" />
+                  {circles.map((c, index) => (
+                  <Circle key={index} size="3.5vmax" bg="#BDDF8E" />
                 ))}
               </HStack>
             </Show>
@@ -42,8 +42,8 @@ const Hero = () => {
                 <Divider />
                 <AbsoluteCenter bg="white" px="2">
                   <HStack gap={1}>
-                    {circles.map((c) => (
-                      <Circle size="4vmax" bg="#BDDF8E" />
+                    {circles.map((c, index) => (
+                      <Circle key={index} size="4vmax" bg="#BDDF8E" />
                     ))}
                   </HStack>
                 </AbsoluteCenter>

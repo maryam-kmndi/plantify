@@ -21,7 +21,7 @@ const NavMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const hover = { color: "primaryColor", textDecoration: "underline" };
   const navData: NavData[] = [
-    { id: 1, name: "Home", href: "/home" },
+    { id: 1, name: "Home", href: "/" },
     { id: 2, name: "Plants", href: "/plants" },
     { id: 3, name: "Pots & Accessories", href: "/pots-accessories" },
     { id: 4, name: "Contact Us", href: "/contact-us" },

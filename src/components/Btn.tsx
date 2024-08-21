@@ -1,7 +1,8 @@
 import { Button, SystemStyleObject } from "@chakra-ui/react";
+import { ReactNode } from "react";
 
 interface Props {
-  children: string;
+  children: string | ReactNode;
   bgColor?: "primaryColor" | "cartsColor";
   color?: string;
   onClick?: () => void;
@@ -12,14 +13,18 @@ interface Props {
 const Btn = ({
   onClick,
   children,
-  hover,
   borderColor,
   bgColor = "primaryColor",
   color = "white",
 }: Props) => {
   return (
     <Button
-      _hover={hover}
+      _hover={{
+        bg: "cartsColor",
+        color: "primaryColor",
+        fontWeight: "bold",
+        borderColor: "primaryColor",
+      }}
       borderRadius={75}
       shadow="lg"
       paddingX={{ xl: "2.6rem", lg: "2.2rem", md: "1.5rem", base: ".8rem" }}
@@ -27,9 +32,9 @@ const Btn = ({
       backgroundColor={bgColor}
       color={color}
       borderColor={borderColor}
-      borderWidth='.1rem'
+      borderWidth=".1rem"
       onClick={onClick}
-      fontSize={{ xl: "1.2rem", lg: "1rem", sm: ".9rem", base: ".7rem" }}
+      fontSize={{ xl: "1.2rem", lg: "1rem", sm: ".9rem", base: ".8rem" }}
       fontWeight={200}
     >
       {children}
