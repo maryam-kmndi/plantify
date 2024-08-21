@@ -1,11 +1,11 @@
-import { Box, HStack, Image, Link, Show, Text } from "@chakra-ui/react";
+import { Box, HStack, Image, Show, Text } from "@chakra-ui/react";
 import logo from "../../assets/Logo.png";
 import { LiaHeart } from "react-icons/lia";
 import { IoPersonOutline } from "react-icons/io5";
 import { SlBasket } from "react-icons/sl";
 import ColorModeSwitch from "./ColorModeSwitch";
 import NavMenu from "./NavMenu";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export interface NavData {
   id: number;
@@ -84,23 +84,29 @@ const NavBar = () => {
                 fontSize={{ md: "18px", lg: "20px", xl: "24px" }}
                 paddingRight="2vw"
               >
-                <Link
-                  _hover={{ color: "primaryColor", transform: "scale(1.5)" }}
-                >
-                  <LiaHeart />
+                <Link to="/favorite-list">
+                  <Text
+                    _hover={{ color: "primaryColor", transform: "scale(1.5)" }}
+                  >
+                    <LiaHeart />
+                  </Text>
                 </Link>
-                <Link
-                  _hover={{
-                    color: "primaryColor",
-                    transform: "scale(1.5)",
-                  }}
-                >
-                  <IoPersonOutline />
+                <Link to="/sign-in">
+                  <Text
+                    _hover={{
+                      color: "primaryColor",
+                      transform: "scale(1.5)",
+                    }}
+                  >
+                    <IoPersonOutline />
+                  </Text>
                 </Link>
-                <Link
-                  _hover={{ color: "primaryColor", transform: "scale(1.5)" }}
-                >
-                  <SlBasket />
+                <Link to="/shoping-cart">
+                  <Text
+                    _hover={{ color: "primaryColor", transform: "scale(1.5)" }}
+                  >
+                    <SlBasket />
+                  </Text>
                 </Link>
               </HStack>
             </HStack>
