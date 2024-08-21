@@ -1,13 +1,15 @@
 import { Heading, Text, VStack } from "@chakra-ui/react";
 import Btn from "../Btn";
+import { Link } from "react-router-dom";
 
 interface Props {
   h: string;
   t: string;
   b: string;
+  to: string;
 }
 
-const ColorSide = ({ h, t, b }: Props) => {
+const ColorSide = ({ h, t, b, to }: Props) => {
   return (
     <VStack
       bg="primaryColor"
@@ -27,7 +29,9 @@ const ColorSide = ({ h, t, b }: Props) => {
       <Text w="50%" fontSize="1.2rem" pt="1rem" pb="3rem">
         {t}
       </Text>
-      <Btn>{b.toUpperCase()}</Btn>
+      <Link to={to}>
+        <Btn>{b.toUpperCase()}</Btn>
+      </Link>
     </VStack>
   );
 };

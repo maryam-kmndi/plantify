@@ -10,10 +10,11 @@ const SignInPage = () => {
           h="hello Friend!"
           t="Enter your personal details and start a journey with us"
           b="sign up"
+          to="/sign-up"
         />
       </GridItem>
       <GridItem>
-        <FormSide h="create account" b="sign in" />
+        <FormSide h="sign in to account" b="sign in" />
       </GridItem>
     </Grid>
   );

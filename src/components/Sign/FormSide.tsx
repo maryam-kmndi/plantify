@@ -9,17 +9,18 @@ import {
 } from "@chakra-ui/react";
 import SocialIcons from "./SocialIcons";
 import Btn from "../Btn";
-import { IoPersonCircleOutline } from "react-icons/io5";
 import { TfiEmail } from "react-icons/tfi";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useState } from "react";
+import { IoPersonCircleOutline } from "react-icons/io5";
 
 interface Props {
   h: string;
   b: string;
+  NameI?: boolean;
 }
 
-const FormSide = ({ h, b }: Props) => {
+const FormSide = ({ h, b, NameI }: Props) => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
@@ -39,6 +40,21 @@ const FormSide = ({ h, b }: Props) => {
         {h}
       </Heading>
       <SocialIcons />
+
+      {NameI && (
+        <InputGroup color="textColor" w="60%" >
+          <InputLeftElement pointerEvents="none">
+            <IoPersonCircleOutline size="1.4rem" />
+          </InputLeftElement>
+          <Input
+            bg="cartsColor"
+            placeholder="Name"
+            borderRadius={75}
+            focusBorderColor="primaryColor"
+          />
+        </InputGroup>
+      )}
+
       <InputGroup color="textColor" w="60%" my=".5rem">
         <InputLeftElement pointerEvents="none">
           <TfiEmail size="1.4rem" />
