@@ -9,7 +9,7 @@ const FavoriteListPage = () => {
         <Favorites />
       </GridItem>
       <GridItem>
-        <ProfileCart favB="gray.200" cartB="primaryColor" />
+        <ProfileCart favB="gray.200" cartB="primaryColor"/>
       </GridItem>
     </Grid>
   );

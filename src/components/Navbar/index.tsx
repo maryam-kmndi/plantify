@@ -101,7 +101,7 @@ const NavBar = () => {
                     <IoPersonOutline />
                   </Text>
                 </Link>
-                <Link to="/shoping-cart">
+                <Link to="/shopping-cart">
                   <Text
                     _hover={{ color: "primaryColor", transform: "scale(1.5)" }}
                   >

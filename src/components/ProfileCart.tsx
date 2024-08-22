@@ -10,6 +10,7 @@ import Btn from "./Btn";
 import { HiOutlineLogout } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa";
 import { SlBasket } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 interface Props {
   favB: string;
@@ -58,14 +59,18 @@ const ProfileCart = ({ favB, cartB }: Props) => {
           </Text>
         </Btn>
         <Divider />
-        <Btn borderColor={favB}>
-          <FaHeart />
-          <Text px=".7rem">Favorite List</Text>
-        </Btn>
-        <Btn borderColor={cartB}>
-          <SlBasket size="1.2rem" />
-          <Text px=".5rem">Shopping Cart</Text>
-        </Btn>
+        <Link to="/favorite-list">
+          <Btn borderColor={favB}>
+            <FaHeart />
+            <Text px=".7rem">Favorite List</Text>
+          </Btn>
+        </Link>
+        <Link to="/shopping-cart">
+          <Btn borderColor={cartB}>
+            <SlBasket size="1.2rem" />
+            <Text px=".5rem">Shopping Cart</Text>
+          </Btn>
+        </Link>
       </CardBody>
     </Card>
   );

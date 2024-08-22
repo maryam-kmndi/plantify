@@ -1,5 +1,7 @@
 import { Box, Divider, Heading, HStack } from "@chakra-ui/react";
 import { RiPlantLine } from "react-icons/ri";
+import Btn from "./Btn";
+import { Link } from "react-router-dom";
 
 const Favorites = () => {
   return (
@@ -11,9 +13,14 @@ const Favorites = () => {
       h="100vh"
       color="textColor"
     >
-      <HStack px="2rem" py="1.5rem">
-        <RiPlantLine size="4rem" />
-        <Heading fontSize="1.8rem">Favorite List</Heading>
+      <HStack px="1rem" py="1.5rem" justifyContent="space-between">
+        <HStack>
+          <RiPlantLine size="4rem" />
+          <Heading fontSize="1.5rem">Favorite List</Heading>
+        </HStack>
+        <Link to="/plants">
+          <Btn>Go Back Shop</Btn>
+        </Link>
       </HStack>
       <Divider />
     </Box>

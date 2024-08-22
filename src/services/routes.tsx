@@ -6,6 +6,7 @@ import PlantDetailPage from "../pages/PlantDetailPage";
 import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
 import FavoriteListPage from "../pages/FavoriteListPage";
+import ShoppingCartPage from "../pages/ShoppingCartPage";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <HomePage /> },
       { path: "/favorite-list", element: <FavoriteListPage /> },
+      { path: "/shopping-cart", element: <ShoppingCartPage /> },
       { path: "/sign-up", element: <SignUpPage /> },
       { path: "/sign-in", element: <SignInPage /> },
       { path: "/plants/:slug", element: <PlantDetailPage /> },
