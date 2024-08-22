@@ -13,7 +13,7 @@ interface Props {
 const Btn = ({
   onClick,
   children,
-  borderColor,
+  borderColor = "gray.200",
   bgColor = "primaryColor",
   color = "white",
 }: Props) => {

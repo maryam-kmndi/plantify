@@ -13,7 +13,7 @@ const SignUpPage = () => {
           h="welcome back!"
           t="To keep connected ith us please login with your personal info"
           b="sign in"
-          to="sign-in"
+          to="/sign-in"
         />
       </GridItem>
     </Grid>

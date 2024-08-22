@@ -90,7 +90,7 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
           <MenuList>
             {sortOrders.map((order) => (
               <MenuItem
-                // onClick={() => onSelectSortOrder(order.value)}
+                onClick={() => sortPlants(order.value)}
                 key={order.value}
                 value={order.value}
               >
