@@ -13,6 +13,7 @@ import {
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdOutlineDone } from "react-icons/md";
 import Btn from "./Btn";
+import { Link } from "react-router-dom";
 
 const Shopping = () => {
   return (
@@ -31,7 +32,9 @@ const Shopping = () => {
             Shopping Cart
           </Heading>
         </HStack>
-        <Btn>Confirm Payment</Btn>
+        <Link to="/info">
+          <Btn>Confirm Payment</Btn>
+        </Link>
       </HStack>
       <Divider />
       <Box h="400px" />

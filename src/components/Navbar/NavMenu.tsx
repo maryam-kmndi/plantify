@@ -23,8 +23,8 @@ const NavMenu = () => {
   const navData: NavData[] = [
     { id: 1, name: "Home", href: "/" },
     { id: 2, name: "Plants", href: "/plants" },
-    { id: 3, name: "Pots & Accessories", href: "/pots-accessories" },
-    { id: 4, name: "Contact Us", href: "/contact-us" },
+    // { id: 3, name: "Pots & Accessories", href: "/pots-accessories" },
+    { id: 3, name: "Contact Us", href: "/contact-us" },
   ];
 
   return (

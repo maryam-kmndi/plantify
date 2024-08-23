@@ -7,6 +7,7 @@ import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
 import FavoriteListPage from "../pages/FavoriteListPage";
 import ShoppingCartPage from "../pages/ShoppingCartPage";
+import CustomerInfoPage from "../pages/CustomerInfoPage";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { path: "", element: <HomePage /> },
       { path: "/favorite-list", element: <FavoriteListPage /> },
       { path: "/shopping-cart", element: <ShoppingCartPage /> },
+      { path: "/info", element: <CustomerInfoPage /> },
       { path: "/sign-up", element: <SignUpPage /> },
       { path: "/sign-in", element: <SignInPage /> },
       { path: "/plants/:slug", element: <PlantDetailPage /> },

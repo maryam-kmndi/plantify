@@ -4,7 +4,9 @@ import {
   Menu,
   MenuButton,
   MenuItem,
+  MenuItemOption,
   MenuList,
+  MenuOptionGroup,
   Show,
   Text,
 } from "@chakra-ui/react";
@@ -76,7 +78,7 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
       </Show>
 
       <Show breakpoint="(max-width: 767px)">
-        <Menu>
+        <Menu closeOnSelect={false}>
           <MenuButton
             mx="1rem"
             as={Button}
@@ -88,15 +90,17 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
             Order by
           </MenuButton>
           <MenuList>
-            {sortOrders.map((order) => (
-              <MenuItem
-                onClick={() => sortPlants(order.value)}
-                key={order.value}
-                value={order.value}
-              >
-                {order.label}
-              </MenuItem>
-            ))}
+            <MenuOptionGroup type="radio">
+              {sortOrders.map((order) => (
+                <MenuItemOption
+                  onClick={() => sortPlants(order.value)}
+                  key={order.value}
+                  value={order.value}
+                >
+                  {order.label}
+                </MenuItemOption>
+              ))}
+            </MenuOptionGroup>
           </MenuList>
         </Menu>
       </Show>

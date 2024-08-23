@@ -14,6 +14,7 @@ import {
 import hero from "../../assets/hero.png";
 
 import Btn from "../Btn";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const circles = [1, 2, 3];
@@ -75,7 +76,9 @@ const Hero = () => {
             </Text>
           </GridItem>
           <GridItem justifySelf={{ md: "flex-end", base: "center" }}>
-            <Btn children="Go Shop Now" />
+            <Link to="/plants">
+              <Btn children="Go Shop Now" />
+            </Link>
           </GridItem>
         </Grid>
       </GridItem>
