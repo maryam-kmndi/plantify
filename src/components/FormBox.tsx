@@ -1,14 +1,16 @@
 import { FormControl, HStack, FormLabel, Input, Text } from "@chakra-ui/react";
+import { RefObject } from "react";
 
 interface Props {
   label: string;
   value: string;
+  refrence?: RefObject<HTMLInputElement>;
 }
 
-const FormBox = ({ label, value }: Props) => {
+const FormBox = ({ label, value, refrence }: Props) => {
   return (
     <FormControl>
-      <HStack spacing={{ xl: "5", lg: "3",base:"1.5" }}>
+      <HStack spacing={{ xl: "5", lg: "3", base: "1.5" }}>
         <FormLabel
           display="grid"
           w="5rem"
@@ -25,9 +27,11 @@ const FormBox = ({ label, value }: Props) => {
         <Input
           w="6rem"
           h="3rem"
+          ref={refrence}
           focusBorderColor="primaryColor"
           placeholder={value}
           _placeholder={{ opacity: 0.4, color: "inherit" }}
+          _focus={{ bg: "cartsColor" }}
         />
       </HStack>
     </FormControl>

@@ -2,11 +2,13 @@ import { Checkbox } from "@chakra-ui/react";
 
 interface Props {
   children: string;
+  onSelect?: () => void;
 }
 
-const TheCheckBox = ({ children }: Props) => {
+const TheCheckBox = ({ children, onSelect }: Props) => {
   return (
     <Checkbox
+      onChange={onSelect}
       spacing="1rem"
       iconColor="primaryColor"
       size="md"
