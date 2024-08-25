@@ -23,7 +23,6 @@ const NavMenu = () => {
   const navData: NavData[] = [
     { id: 1, name: "Home", href: "/" },
     { id: 2, name: "Plants", href: "/plants" },
-    // { id: 3, name: "Pots & Accessories", href: "/pots-accessories" },
     { id: 3, name: "Contact Us", href: "/contact-us" },
   ];
 
@@ -36,9 +35,9 @@ const NavMenu = () => {
         bg="transparent"
         color="white"
       />
-      <Drawer size="full" placement="right" onClose={onClose} isOpen={isOpen}>
+      <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent bg="white">
           <DrawerCloseButton paddingTop={4} />
           <DrawerHeader borderBottomWidth="1px">Plantify</DrawerHeader>
           <DrawerBody>

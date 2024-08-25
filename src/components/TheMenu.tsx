@@ -22,18 +22,21 @@ const TheMenu = ({ items }: Props) => {
         borderWidth="1px"
         fontWeight="200"
         bg="white"
-        color="gray.500"
         as={Button}
         _hover={{ borderColor: "primaryColor", bg: "white" }}
         _focus={{ borderColor: "primaryColor", shadow: "none" }}
         _expanded={{ bg: "white" }}
         rightIcon={<FiChevronDown />}
       >
-        {label}
+        <Text opacity=".6" _dark={{ opacity: "0.24" }}>
+          {label}
+        </Text>
       </MenuButton>
-      <MenuList>
+      <MenuList color="gray">
         {items.map((i) => (
-          <MenuItem onClick={() => setLabel(i)}>{i}</MenuItem>
+          <MenuItem key={i} onClick={() => setLabel(i)}>
+            {i}
+          </MenuItem>
         ))}
       </MenuList>
     </Menu>

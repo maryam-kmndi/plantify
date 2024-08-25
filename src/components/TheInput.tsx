@@ -10,7 +10,7 @@ const TheInput = ({ t, pr = "3rem", pl = "3rem" }: Props) => {
   return (
     <FormControl pr={pr} pl={pl} py=".5rem" isRequired>
       <FormLabel>{t}</FormLabel>
-      <Input focusBorderColor="primaryColor" />
+      <Input focusBorderColor="#79A141" />
     </FormControl>
   );
 };

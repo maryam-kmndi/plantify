@@ -1,4 +1,10 @@
-import { extendTheme, ThemeConfig } from "@chakra-ui/react";
+import {
+  extendTheme,
+  StyleFunctionProps,
+  ThemeConfig,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
 import "@fontsource/roboto";
 import "@fontsource/open-sans";
 import "@openfonts/dynalight_latin";
@@ -10,11 +16,24 @@ const config: ThemeConfig = {
 
 const theme = extendTheme({
   config,
-  colors: {
-    primaryColor: "#79A141",
-    secondryColor: "#FEFEFE",
-    cartsColor: "#F5F3F4",
-    textColor: "#464646",
+  styles: {
+    global: (props: StyleFunctionProps) => ({
+      body: {
+        bg: mode("#fff", "#121212")(props),
+      },
+    }),
+  },
+  semanticTokens: {
+    colors: {
+      // primaryColor: "#79A141",
+      // secondryColor: "#FEFEFE",
+      // cartsColor: "#F5F3F4",
+      // textColor: "#464646",
+      white: { _light: "#fff", _dark: "#121212" },
+      primaryColor: { _light: "#79A141", _dark: "#556938" },
+      cartsColor: { _light: "#F5F3F4", _dark: "#262425" },
+      textColor: { _light: "#464646", _dark: "#d7d7d7" },
+    },
   },
   fonts: {
     heading: `'roboto','open-sans'`,

@@ -58,12 +58,12 @@ const CustomerInfoPage = () => {
             <TheMenu items={provinces} />
             <Input
               textAlign="center"
-              focusBorderColor="primaryColor"
+              focusBorderColor="#79A141"
               placeholder="City"
             />
             <Input
               textAlign="center"
-              focusBorderColor="primaryColor"
+              focusBorderColor="#79A141"
               placeholder="Postal Code"
             />
           </Stack>

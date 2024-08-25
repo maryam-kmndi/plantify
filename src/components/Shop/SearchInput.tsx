@@ -38,7 +38,7 @@ const SearchInput = ({ onSearch }: Props) => {
           <BsSearch color="gray" size="1.5rem" />
         </InputLeftElement>
         <Input
-          focusBorderColor="primaryColor"
+          focusBorderColor="#79A141"
           size="lg"
           fontSize={{ base: "sm", md: "md" }}
           borderRadius={30}

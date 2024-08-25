@@ -21,6 +21,7 @@ const Shopping = () => {
       ml=".5rem"
       mr={{ base: ".5rem", md: "0" }}
       bg="#F5F3F4"
+      // _dark={{bg:""}}
       borderRadius="36px"
       h="100%"
       color="textColor"
@@ -55,7 +56,7 @@ const Shopping = () => {
               bg="#D9D9D9"
               placeholder="Enter your code ..."
               borderRadius={75}
-              focusBorderColor="primaryColor"
+              focusBorderColor="#79A141"
             />
             <Tooltip label="Apply" hasArrow bg="cartsColor" color="textColor">
               <Button

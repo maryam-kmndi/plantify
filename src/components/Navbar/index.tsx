@@ -22,7 +22,6 @@ const NavBar = () => {
   const navData: NavData[] = [
     { id: 1, name: "Home", href: "/" },
     { id: 2, name: "Plants", href: "/plants" },
-    // { id: 3, name: "Pots & Accessories", href: "/pots-accessories" },
     { id: 3, name: "Contact Us", href: "/contact-us" },
   ];
   return (
@@ -37,21 +36,12 @@ const NavBar = () => {
       </Show>
       <Show above="md">
         <Box bg="primaryColor" h="132px">
-          <HStack
-            justifyContent="space-between"
-            paddingLeft={{ xl: "10vw", lg: "12vw", md: "14vw" }}
-          >
-            <Text
-              paddingTop={{ xl: "1vw", lg: "3vw", md: "4vw" }}
-              color="#fff"
-              fontSize={{ md: "xs", xl: "sm" }}
-            >
-              Maryam's features online shopping
-            </Text>
+          <HStack justifyContent="end">
             <ColorModeSwitch />
           </HStack>
           <Box
             bg="white"
+            _dark={{ bg: "cartsColor" }}
             w="90%"
             borderRadius="75"
             margin="0 auto "

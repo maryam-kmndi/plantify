@@ -12,9 +12,19 @@ import frame from "../../assets/discountFrame.png";
 const Discount = () => {
   return (
     <Container my="2.5rem">
-      <Box pos='relative' display="grid" justifyItems="center" alignItems="center">
+      <Box
+        pos="relative"
+        display="grid"
+        justifyItems="center"
+        alignItems="center"
+      >
         <Image src={frame} />
-        <VStack pos="absolute" textAlign="center" color="white">
+        <VStack
+          pos="absolute"
+          textAlign="center"
+          color="white"
+          _dark={{ color: "textColor" }}
+        >
           <Heading fontSize="1.3rem" textShadow="1px 1px #000">
             GET 30% OFF
           </Heading>
@@ -28,6 +38,7 @@ const Discount = () => {
             px={{ lg: "2.7rem", base: "1.8rem" }}
             fontSize=".7rem"
             color="gray"
+            _dark={{ bg: "textColor" }}
           >
             Share
           </Button>

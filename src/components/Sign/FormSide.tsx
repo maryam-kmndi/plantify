@@ -42,7 +42,7 @@ const FormSide = ({ h, b, NameI }: Props) => {
       <SocialIcons />
 
       {NameI && (
-        <InputGroup color="textColor" w="60%" >
+        <InputGroup color="textColor" w="60%">
           <InputLeftElement pointerEvents="none">
             <IoPersonCircleOutline size="1.4rem" />
           </InputLeftElement>
@@ -50,7 +50,7 @@ const FormSide = ({ h, b, NameI }: Props) => {
             bg="cartsColor"
             placeholder="Name"
             borderRadius={75}
-            focusBorderColor="primaryColor"
+            focusBorderColor="#79A141"
           />
         </InputGroup>
       )}
@@ -63,7 +63,7 @@ const FormSide = ({ h, b, NameI }: Props) => {
           bg="cartsColor"
           placeholder="Email"
           borderRadius={75}
-          focusBorderColor="primaryColor"
+          focusBorderColor="#79A141"
         />
       </InputGroup>
 
@@ -75,7 +75,7 @@ const FormSide = ({ h, b, NameI }: Props) => {
           bg="cartsColor"
           placeholder="Password"
           borderRadius={75}
-          focusBorderColor="primaryColor"
+          focusBorderColor="#79A141"
           type={show ? "text" : "password"}
         />
         <InputRightElement width="4.5rem" pr="1rem">

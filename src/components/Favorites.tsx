@@ -9,6 +9,7 @@ const Favorites = () => {
       ml=".5rem"
       mr={{ base: ".5rem", md: "0" }}
       bg="#F5F3F4"
+      // _dark={{bg:""}}
       borderRadius="36px"
       h="100vh"
       color="textColor"

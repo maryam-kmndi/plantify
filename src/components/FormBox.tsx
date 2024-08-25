@@ -28,7 +28,7 @@ const FormBox = ({ label, value, refrence }: Props) => {
           w="6rem"
           h="3rem"
           ref={refrence}
-          focusBorderColor="primaryColor"
+          focusBorderColor="#79A141"
           placeholder={value}
           _placeholder={{ opacity: 0.4, color: "inherit" }}
           _focus={{ bg: "cartsColor" }}

@@ -52,7 +52,7 @@ const ProfileCart = ({ favB, cartB }: Props) => {
         <Text letterSpacing={2} fontSize={{ base: "1rem", lg: "1.7rem" }}>
           +98 912 345 6789
         </Text>
-        <Btn bgColor="cartsColor" color="black">
+        <Btn bgColor="cartsColor" color="textColor">
           <HiOutlineLogout size="1.2rem" />
           <Text as="b" px="1rem">
             Log out
