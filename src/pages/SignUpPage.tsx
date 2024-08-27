@@ -6,10 +6,11 @@ const SignUpPage = () => {
   return (
     <Grid templateColumns={{ base: "1fr", md: "55% 45%" }}>
       <GridItem>
-        <FormSide h="create account" b="sign up" NameI/>
+        <FormSide h="create account" b="sign up" NameI />
       </GridItem>
       <GridItem>
         <ColorSide
+          right
           h="welcome back!"
           t="To keep connected ith us please login with your personal info"
           b="sign in"

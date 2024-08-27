@@ -81,7 +81,7 @@ const NavBar = () => {
                     <LiaHeart />
                   </Text>
                 </Link>
-                <Link to="/sign-in">
+                <Link to="/log-in">
                   <Text
                     _hover={{
                       color: "primaryColor",

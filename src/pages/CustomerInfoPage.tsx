@@ -33,7 +33,6 @@ const CustomerInfoPage = () => {
       <GridItem zIndex="2">
         <Box
           w={{ base: "90%", md: "70%", lg: "55%" }}
-          h="100%px"
           py="2rem"
           mx="auto"
           bg="white"
