@@ -1,22 +1,6 @@
-import {
-  Box,
-  Button,
-  FormControl,
-  FormLabel,
-  Grid,
-  GridItem,
-  HStack,
-  Input,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Stack,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Grid, GridItem, HStack, Input, Stack } from "@chakra-ui/react";
 import TheInput from "../components/TheInput";
 import TheMenu from "../components/TheMenu";
-import { FiChevronDown } from "react-icons/fi";
 import Btn from "../components/Btn";
 
 const CustomerInfoPage = () => {
@@ -46,7 +30,7 @@ const CustomerInfoPage = () => {
             <TheInput t="First Name" pr="0" />
             <TheInput t="Last Name" pl="0" />
           </HStack>
-          <TheInput t="Phone Number" />
+          <TheInput type="number" t="Phone Number" />
           <TheInput t="Address" />
           <Stack
             direction={{ base: "column", md: "row" }}
@@ -63,11 +47,12 @@ const CustomerInfoPage = () => {
             <Input
               textAlign="center"
               focusBorderColor="#79A141"
+              type="number"
               placeholder="Postal Code"
             />
           </Stack>
           <HStack justify="center" py="1rem">
-            <Btn>Confirm Payment</Btn>
+            <Btn type="submit">Confirm Payment</Btn>
           </HStack>
         </Box>
       </GridItem>

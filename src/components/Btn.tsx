@@ -8,11 +8,13 @@ interface Props {
   onClick?: () => void;
   hover?: SystemStyleObject | undefined;
   borderColor?: string;
+  type?: "submit";
 }
 
 const Btn = ({
   onClick,
   children,
+  type,
   borderColor = "gray.200",
   bgColor = "primaryColor",
   color = "white",
@@ -25,6 +27,7 @@ const Btn = ({
         fontWeight: "bold",
         borderColor: "primaryColor",
       }}
+      type={type}
       borderRadius={75}
       shadow="lg"
       paddingX={{ xl: "2.6rem", lg: "2.2rem", md: "1.5rem", base: ".8rem" }}

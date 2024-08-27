@@ -4,13 +4,14 @@ interface Props {
   t: string;
   pr?: string;
   pl?: string;
+  type?: string;
 }
 
-const TheInput = ({ t, pr = "3rem", pl = "3rem" }: Props) => {
+const TheInput = ({ t, pr = "3rem", pl = "3rem", type }: Props) => {
   return (
     <FormControl pr={pr} pl={pl} py=".5rem" isRequired>
       <FormLabel>{t}</FormLabel>
-      <Input focusBorderColor="#79A141" />
+      <Input type={type} focusBorderColor="#79A141" />
     </FormControl>
   );
 };
