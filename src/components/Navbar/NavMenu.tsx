@@ -24,6 +24,9 @@ const NavMenu = () => {
     { id: 1, name: "Home", href: "/" },
     { id: 2, name: "Plants", href: "/plants" },
     { id: 3, name: "Contact Us", href: "/contact-us" },
+    { id: 4, name: "Favorite List", href: "/favorite-list" },
+    { id: 5, name: "Shopping Cart", href: "/shopping-cart" },
+    { id: 6, name: "Log In", href: "/log-in" },
   ];
 
   return (

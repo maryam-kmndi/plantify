@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import Btn from "../Btn";
 import photo from "../../assets/contactUs.png";
+import { Link } from "react-router-dom";
 
 const ContactUsPreview = () => {
   return (
@@ -23,7 +24,6 @@ const ContactUsPreview = () => {
       <GridItem area="first">
         <VStack alignItems="start" px="2rem" pt="2rem">
           <Heading
-            w="100%"
             textAlign={{ base: "center", md: "start" }}
             letterSpacing={0.8}
             fontSize={{ xl: "2rem", md: "1.8rem", base: "1.3rem" }}
@@ -33,13 +33,12 @@ const ContactUsPreview = () => {
           <Text
             pt=".3rem"
             pb=".5rem"
-            fontSize={{ xl: "1.2rem", lg: ".8rem", base: ".7rem" }}
+            fontSize={{ xl: "1.2rem", lg: ".9rem", base: ".7rem" }}
           >
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-            optio officiis dolore earum error eaque perferendis laudantium sed
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-            optio officiis dolore earum error eaque perferendis laudantium sed
-            praesentium dolorum.
+            Have questions about our plants or need assistance with your order?
+            Our friendly team is ready to assist you. We're passionate about
+            plants and committed to providing you with the best services. Let's
+            grow together!
           </Text>
           <HStack
             w="100%"
@@ -48,18 +47,22 @@ const ContactUsPreview = () => {
             pb="2rem"
             spacing={{ md: "1rem", base: ".5rem" }}
           >
-            <Btn
-              hover={{ bg: "cartsColor", color: "textColor" }}
-              borderColor="cartsColor"
-            >
-              Contact Us
-            </Btn>
-            <Btn
-              hover={{ bg: "cartsColor", color: "textColor" }}
-              borderColor="cartsColor"
-            >
-              New Arrival
-            </Btn>
+            <Link to="/contact-us">
+              <Btn
+                hover={{ bg: "cartsColor", color: "textColor" }}
+                borderColor="cartsColor"
+              >
+                Contact Us
+              </Btn>
+            </Link>
+            <Link to="/plants">
+              <Btn
+                hover={{ bg: "cartsColor", color: "textColor" }}
+                borderColor="cartsColor"
+              >
+                New Arrival
+              </Btn>
+            </Link>
           </HStack>
         </VStack>
       </GridItem>

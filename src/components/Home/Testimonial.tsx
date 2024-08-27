@@ -49,13 +49,15 @@ const Testimonial = () => {
       <GridItem px={{ base: "3vmax", md: 0 }}>
         <Text
           textAlign={{ md: "start", base: "center" }}
-          fontSize={{ lg: "1.3rem", md: "1rem" }}
+          fontSize={{ lg: "1rem", base: ".8rem" }}
           pr={{ md: "3rem" }}
           mb="2rem"
         >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-          optio officiis dolore earum error eaque perferendis laudantium sed
-          praesentium dolorum.
+          I'm Maryam, a passionate plant lover dedicated to bringing the beauty
+          of nature inyo your home. What started as a small hobby has blossomed
+          into this online shop, where I curate a selection of the healthiest,
+          most vibrant plants. Every plant is chosen with care, ensuring it will
+          thrive in your space and bring joy to your life.
         </Text>
         <HStack mb="2rem">
           <TfiLayoutLineSolid size={30} color="#79A141" />
