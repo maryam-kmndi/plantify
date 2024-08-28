@@ -5,26 +5,25 @@ import {
   InputLeftElement,
   Text,
 } from "@chakra-ui/react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
-import { plantDataType, plantsList } from "../../data/plants";
+import { plantsList } from "../../data/plants";
+import { useSearchPlants } from "../../store/useSearchPlants";
 
-interface Props {
-  onSearch: (searchText: plantDataType[] | undefined) => void;
-}
 
-const SearchInput = ({ onSearch }: Props) => {
+const SearchInput = () => {
   const [value, setValue] = useState("");
-
+  const { setSearchData } = useSearchPlants()
+  
   const search = (event: string) => {
     setValue(event);
     if (event !== "") {
       const searchResult = plantsList.filter((item) =>
         item.name.startsWith(event)
       );
-      onSearch(searchResult);
+      setSearchData(searchResult);
     } else {
-      onSearch(undefined);
+      setSearchData(undefined);
     }
   };
 

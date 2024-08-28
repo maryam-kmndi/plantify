@@ -16,14 +16,12 @@ import StarRate from "./StarRate";
 import { Link } from "react-router-dom";
 
 interface Props {
-  data?: plantDataType[] | undefined;
+  data: plantDataType[]|undefined;
   w?: string;
   fontSize?: string;
 }
 
 const ShopCarts = ({ data, fontSize = "1rem", w = "80%" }: Props) => {
-  const renderData: plantDataType[] = data ?? plantsList;
-
   return (
     <Grid
       mt="1.5rem"
@@ -36,7 +34,7 @@ const ShopCarts = ({ data, fontSize = "1rem", w = "80%" }: Props) => {
         lg: "repeat(4,1fr)",
       }}
     >
-      {renderData?.map((plant) => (
+      {data?.map((plant) => (
         <GridItem key={plant.id}>
           <Card
             className="card"

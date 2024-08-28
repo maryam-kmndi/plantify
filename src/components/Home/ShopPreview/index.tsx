@@ -33,21 +33,9 @@ const ShopPreview = () => {
           my="2rem"
           spacing={{ xl: "3.3rem", lg: "3rem", md: "2.7rem", base: ".8rem" }}
         >
-          <ShopBtn
-            bg="primaryColor"
-            color="cartsColor"
-            children="New Arrival"
-          />
-          <ShopBtn
-            bg="primaryColor"
-            color="cartsColor"
-            children="Top Products"
-          />
-          <ShopBtn
-            bg="primaryColor"
-            color="cartsColor"
-            children="Best Sellers"
-          />
+          <ShopBtn active children="New Arrival" />
+          <ShopBtn active children="Top Products" />
+          <ShopBtn active children="Best Sellers" />
         </HStack>
         <ShopCarts data={plantsList.slice(0, 4)} />
       </VStack>

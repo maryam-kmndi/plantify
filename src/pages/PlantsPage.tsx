@@ -5,25 +5,41 @@ import SortSelector from "../components/Shop/SortSelector";
 import Filter from "../components/Shop/Filter";
 import FilterDrawer from "../components/Shop/FilterDrawer";
 import ShopCarts from "../components/Home/ShopPreview/ShopCarts";
+import { useFilterProduct } from "../store/useFiltersPlants";
+import { useSearchPlants } from "../store/useSearchPlants";
+import { useSortPlants } from "../store/useSortPlants";
 import { plantDataType, plantsList } from "../data/plants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useActiveFilters } from "../store/useActiveFilter";
 
 const PlantsPage = () => {
-  const [renderSortData, setRenderSortData] =
-    useState<plantDataType[]>(plantsList);
+  const { renderSearchData } = useSearchPlants()
+  const { filterProductResult } = useFilterProduct()
+  const { sortPlantsResult } = useSortPlants()
+  const { activeFilters } = useActiveFilters()
+  const [renderData, setRenderData] = useState<plantDataType[]>([])
 
-  const [renderSearchData, setRenderSearchData] = useState<
-    plantDataType[] | undefined
-  >(undefined);
+  useEffect(() => {
+    selectRenderData()
+  }, [filterProductResult, sortPlantsResult, renderSearchData, activeFilters])
 
-  const sortPlants = (sortResult: plantDataType[]) => {
-    setRenderSortData([...sortResult]);
-  };
+  const selectRenderData = () => {
+    if (renderSearchData) {
+      setRenderData(renderSearchData)
+    }
+    else if (activeFilters.length >= 1) {
+      setRenderData(filterProductResult as plantDataType[])
+    } else if (sortPlantsResult) {
+      setRenderData(sortPlantsResult)
+    }
+    else {
+      console.log("hello");
 
-  const searchPlants = (searchResult: plantDataType[] | undefined) => {
-    setRenderSearchData(searchResult);
-  };
+      setRenderData([...plantsList])
+    }
+    console.log(renderData);
 
+  }
   return (
     <>
       <ShopHero />
@@ -44,15 +60,15 @@ const PlantsPage = () => {
           </GridItem>
         </Show>
         <GridItem px="1rem">
-          <SearchInput onSearch={searchPlants} />
-          <SortSelector onSelectSortOrder={sortPlants} />
+          <SearchInput />
+          <SortSelector />
           <Show breakpoint="(max-width: 767px)">
             <FilterDrawer />
           </Show>
           <ShopCarts
             fontSize=".9rem"
             w="98%"
-            data={renderSearchData ?? renderSortData}
+            data={renderData}
           />
         </GridItem>
       </Grid>

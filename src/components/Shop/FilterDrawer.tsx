@@ -4,12 +4,8 @@ import {
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  DrawerHeader,
   DrawerBody,
-  Input,
-  DrawerFooter,
   useDisclosure,
-  Text,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import Filter from "./Filter";
