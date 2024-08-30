@@ -17,3 +17,20 @@ html {
     font-size: 18px;
   }
 }
+
+.swalStyle {
+  width: 60vw;
+  padding: 10rem;
+  font-size: 20px;
+}
+.swal-overlay {
+  background-color: #f5f3f4;
+}
+.swal-modal {
+  border: 3px solid #79a141;
+  padding: 40px;
+}
+
+.swal-warning {
+  border: 3px solid rgb(221, 70, 70);
+}

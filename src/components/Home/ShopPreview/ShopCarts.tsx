@@ -8,20 +8,39 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { plantDataType, plantsList } from "../../../data/plants";
-import { SlBasket } from "react-icons/sl";
-import { LiaHeart } from "react-icons/lia";
+import { SlBasket, SlBasketLoaded } from "react-icons/sl";
+import { LiaHeart, LiaHeartSolid } from "react-icons/lia";
 import HowerCircle from "./HowerCircle";
 import "./ShopCarts.css";
 import StarRate from "./StarRate";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCheckLogin } from "../../../store/useCheckLogin";
+import { useFavoriteList } from "../../../store/useFavoriteList";
+import { useCartItems } from "../../../store/useCartItem";
 
 interface Props {
-  data: plantDataType[]|undefined;
+  data: plantDataType[] | undefined;
   w?: string;
   fontSize?: string;
 }
 
 const ShopCarts = ({ data, fontSize = "1rem", w = "80%" }: Props) => {
+  const { checkLogin: session } = useCheckLogin();
+  const navigate = useNavigate();
+  const { FavoriteList, setFavoriteList } = useFavoriteList();
+  const { CartItem, setCartItem } = useCartItems();
+
+  const addFavorite = (selectId: number) => {
+    const plantDetails = plantsList.find(
+      (q) => q.id === selectId
+    ) as plantDataType;
+    if (!session) {
+      navigate("/log-in");
+    } else {
+      setFavoriteList(plantDetails);
+    }
+  };
+
   return (
     <Grid
       mt="1.5rem"
@@ -51,11 +70,29 @@ const ShopCarts = ({ data, fontSize = "1rem", w = "80%" }: Props) => {
           >
             <CardBody>
               <VStack className="hidden">
-                <HowerCircle top="15%">
-                  <SlBasket />
+                <HowerCircle
+                  top="15%"
+                  handleClick={() => {
+                    setCartItem(
+                      plantsList.find((q) => q.id === plant.id) as plantDataType
+                    );
+                  }}
+                >
+                  {!CartItem.find((q) => q.id === plant.id) && (
+                    <SlBasket size="1.2rem" />
+                  )}
+                  {CartItem.find((q) => q.id === plant.id) && (
+                    <SlBasketLoaded size="1.2rem" />
+                  )}
                 </HowerCircle>
-                <HowerCircle top="32%">
-                  <LiaHeart />
+                <HowerCircle
+                  top="32%"
+                  handleClick={() => addFavorite(plant.id)}
+                >
+                  {!FavoriteList.find((q) => q.id === plant.id) && <LiaHeart />}
+                  {FavoriteList.find((q) => q.id === plant.id) && (
+                    <LiaHeartSolid />
+                  )}
                 </HowerCircle>
               </VStack>
               <Image
@@ -72,7 +109,7 @@ const ShopCarts = ({ data, fontSize = "1rem", w = "80%" }: Props) => {
                   xl: "1.4rem",
                 }}
               >
-                <Link to={"/plants/" + plant.slug}>{plant.name}</Link>
+                <Link to={`/plants/${plant.id}`}>{plant.name}</Link>
               </Text>
               <StarRate rate={plant.rate} />
               <Text

@@ -1,22 +1,17 @@
-import { Grid, GridItem } from "@chakra-ui/react";
-import ProfileCart from "../components/ProfileCart";
 import Shopping from "../components/Shopping";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useCheckLogin } from "../store/useCheckLogin";
 
 const ShoppingCartPage = () => {
-  return (
-    <Grid
-      templateColumns={{ base: "1fr", md: "65% 35%" }}
-      gap=".5rem"
-      py="1rem"
-    >
-      <GridItem>
-        <Shopping />
-      </GridItem>
-      <GridItem>
-        <ProfileCart favB="primaryColor" cartB="gray.200" />
-      </GridItem>
-    </Grid>
-  );
+  const navigate = useNavigate();
+  const { checkLogin } = useCheckLogin();
+
+  useEffect(() => {
+    !checkLogin && navigate("/log-in");
+  }, [checkLogin]);
+
+  return <Shopping />;
 };
 
 export default ShoppingCartPage;

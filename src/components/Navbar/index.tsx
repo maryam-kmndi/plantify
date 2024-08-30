@@ -1,11 +1,27 @@
-import { Box, HStack, Image, Show, Text } from "@chakra-ui/react";
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogOverlay,
+  Box,
+  Button,
+  HStack,
+  Image,
+  Show,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
 import logo from "../../assets/Logo.png";
 import { LiaHeart } from "react-icons/lia";
-import { IoPersonOutline } from "react-icons/io5";
 import { SlBasket } from "react-icons/sl";
 import ColorModeSwitch from "./ColorModeSwitch";
 import NavMenu from "./NavMenu";
 import { Link, NavLink } from "react-router-dom";
+import { useCheckLogin } from "../../store/useCheckLogin";
+import { HiOutlineLogout } from "react-icons/hi";
+import { IoIosLogIn } from "react-icons/io";
+import { useRef } from "react";
 
 export interface NavData {
   id: number;
@@ -14,6 +30,8 @@ export interface NavData {
 }
 
 const NavBar = () => {
+  const { checkLogin, setCheckLogin } = useCheckLogin();
+
   const hover = {
     color: "primaryColor",
     textDecoration: "underline",
@@ -24,6 +42,10 @@ const NavBar = () => {
     { id: 2, name: "Plants", href: "/plants" },
     { id: 3, name: "Contact Us", href: "/contact-us" },
   ];
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef<any>();
+
   return (
     <>
       <Show breakpoint="(max-width: 767px)">
@@ -69,36 +91,116 @@ const NavBar = () => {
                   </NavLink>
                 ))}
               </HStack>
-              <HStack
-                spacing="1vmax"
-                fontSize={{ md: "18px", lg: "20px", xl: "24px" }}
-                paddingRight="2vw"
-              >
-                <Link to="/favorite-list">
+              {checkLogin ? (
+                <HStack
+                  spacing="1vmax"
+                  fontSize={{ md: "18px", lg: "20px", xl: "24px" }}
+                  paddingRight="2vw"
+                  color="textColor"
+                >
+                  <Link to="/favorite-list">
+                    <Text
+                      _hover={{
+                        color: "primaryColor",
+                        transform: "scale(1.5)",
+                      }}
+                    >
+                      <LiaHeart />
+                    </Text>
+                  </Link>
+
+                  <Link to="/shopping-cart">
+                    <Text
+                      _hover={{
+                        color: "primaryColor",
+                        transform: "scale(1.5)",
+                      }}
+                    >
+                      <SlBasket />
+                    </Text>
+                  </Link>
+
                   <Text
-                    _hover={{ color: "primaryColor", transform: "scale(1.5)" }}
-                  >
-                    <LiaHeart />
-                  </Text>
-                </Link>
-                <Link to="/log-in">
-                  <Text
+                    pl=".1rem"
+                    cursor="pointer"
+                    onClick={onOpen}
                     _hover={{
                       color: "primaryColor",
                       transform: "scale(1.5)",
                     }}
                   >
-                    <IoPersonOutline />
+                    <HiOutlineLogout />
                   </Text>
-                </Link>
-                <Link to="/shopping-cart">
-                  <Text
-                    _hover={{ color: "primaryColor", transform: "scale(1.5)" }}
+                  <AlertDialog
+                    isOpen={isOpen}
+                    leastDestructiveRef={cancelRef}
+                    onClose={onClose}
                   >
-                    <SlBasket />
-                  </Text>
-                </Link>
-              </HStack>
+                    <AlertDialogOverlay>
+                      <AlertDialogContent
+                        pt="2rem"
+                        pb="1rem"
+                        borderRadius="30px"
+                      >
+                        <AlertDialogBody>
+                          Are you sure you want to log out?
+                        </AlertDialogBody>
+
+                        <AlertDialogFooter>
+                          <Button ref={cancelRef} onClick={onClose}>
+                            Cancel
+                          </Button>
+                          <Button
+                            colorScheme="red"
+                            onClick={() => setCheckLogin(false)}
+                            ml={3}
+                          >
+                            Log Out
+                          </Button>
+                        </AlertDialogFooter>
+                      </AlertDialogContent>
+                    </AlertDialogOverlay>
+                  </AlertDialog>
+                </HStack>
+              ) : (
+                <HStack
+                  spacing="1vmax"
+                  fontSize={{ md: "18px", lg: "20px", xl: "24px" }}
+                  paddingRight="2vw"
+                  color="textColor"
+                >
+                  <Link to="/favorite-list">
+                    <Text
+                      _hover={{
+                        color: "primaryColor",
+                        transform: "scale(1.5)",
+                      }}
+                    >
+                      <LiaHeart />
+                    </Text>
+                  </Link>
+                  <Link to="/shopping-cart">
+                    <Text
+                      _hover={{
+                        color: "primaryColor",
+                        transform: "scale(1.5)",
+                      }}
+                    >
+                      <SlBasket />
+                    </Text>
+                  </Link>
+                  <Link to="/log-in">
+                    <Text
+                      _hover={{
+                        color: "primaryColor",
+                        transform: "scale(1.5)",
+                      }}
+                    >
+                      <IoIosLogIn />
+                    </Text>
+                  </Link>
+                </HStack>
+              )}
             </HStack>
           </Box>
         </Box>

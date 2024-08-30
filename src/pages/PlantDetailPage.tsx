@@ -20,7 +20,7 @@ import ProductsBtn from "../components/ShopDetails/ProductsBtn";
 const PlantDetailPage = () => {
   const navigate = useNavigate();
   const { slug } = useParams();
-  const plant = plantsList.find((p) => p.slug === slug);
+  const plant = plantsList.find((p) => p.id === parseFloat(slug as string));
 
   const newPrice = (price: string) => {
     const intPrice = parseInt(price);
@@ -35,7 +35,7 @@ const PlantDetailPage = () => {
         pt="3rem"
         pos="relative"
       >
-        <GridItem bg="primaryColor" h="105%" pt="1rem" pl=".5rem">
+        <GridItem bg="primaryColor" h="100%" pt="1rem" pl=".5rem">
           <FiChevronLeft
             size={60}
             color="white"
@@ -59,7 +59,10 @@ const PlantDetailPage = () => {
             </CardBody>
           </Card>
         </GridItem>
-        <GridItem w="90%">
+        <GridItem
+          w="90%"
+          mb={{ xl: "6vmax", lg: "8vmax", md: "10vmax", base: "5vmax" }}
+        >
           <VStack align="left" pl={{ md: "22%", base: "8%" }} pt="14%">
             <Heading color="textColor">{plant?.name}</Heading>
             <HStack spacing={5} fontWeight="600" fontSize="1.1rem" pb="1rem">
@@ -76,7 +79,7 @@ const PlantDetailPage = () => {
               </Text>
               <TheNumberInput />
             </HStack>
-            <ProductsBtn />
+            <ProductsBtn id={parseFloat(slug as string)} />
           </VStack>
         </GridItem>
       </Grid>

@@ -1,3 +1,4 @@
+import md5 from "md5";
 import api from "../../services/apiClient";
 type SignUpDataType = { email: string; name: string; password: string };
 
@@ -5,7 +6,6 @@ interface signUpReqParameter extends SignUpDataType {
   salt: string;
 }
 
-const md5 = require("blueimp-md5");
 
 const signUpUser = async (userDetails: signUpReqParameter) => {
   console.log(userDetails);

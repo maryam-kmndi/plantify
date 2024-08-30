@@ -22,6 +22,7 @@ const Testimonial = () => {
       templateColumns={{ base: "1fr", md: "40% 60%" }}
       justifyItems="center"
       alignItems={{ md: "center" }}
+      mb={{ xl: "6vmax", lg: "8vmax", md: "10vmax", base: "5vmax" }}
     >
       <GridItem position="relative">
         <Image

@@ -13,33 +13,30 @@ import { useEffect, useState } from "react";
 import { useActiveFilters } from "../store/useActiveFilter";
 
 const PlantsPage = () => {
-  const { renderSearchData } = useSearchPlants()
-  const { filterProductResult } = useFilterProduct()
-  const { sortPlantsResult } = useSortPlants()
-  const { activeFilters } = useActiveFilters()
-  const [renderData, setRenderData] = useState<plantDataType[]>([])
+  const { renderSearchData } = useSearchPlants();
+  const { filterProductResult } = useFilterProduct();
+  const { sortPlantsResult } = useSortPlants();
+  const { activeFilters } = useActiveFilters();
+  const [renderData, setRenderData] = useState<plantDataType[]>([]);
 
   useEffect(() => {
-    selectRenderData()
-  }, [filterProductResult, sortPlantsResult, renderSearchData, activeFilters])
+    selectRenderData();
+  }, [filterProductResult, sortPlantsResult, renderSearchData, activeFilters]);
 
   const selectRenderData = () => {
     if (renderSearchData) {
-      setRenderData(renderSearchData)
-    }
-    else if (activeFilters.length >= 1) {
-      setRenderData(filterProductResult as plantDataType[])
+      setRenderData(renderSearchData);
+    } else if (activeFilters.length >= 1) {
+      setRenderData(filterProductResult as plantDataType[]);
     } else if (sortPlantsResult) {
-      setRenderData(sortPlantsResult)
-    }
-    else {
+      setRenderData(sortPlantsResult);
+    } else {
       console.log("hello");
 
-      setRenderData([...plantsList])
+      setRenderData([...plantsList]);
     }
     console.log(renderData);
-
-  }
+  };
   return (
     <>
       <ShopHero />
@@ -50,6 +47,7 @@ const PlantsPage = () => {
           lg: "21% 1% 78%",
           xl: "19% 1% 80%",
         }}
+        mb={{ xl: "6vmax", lg: "8vmax", md: "10vmax", base: "5vmax" }}
       >
         <Show breakpoint="(min-width: 768px)">
           <GridItem>
@@ -65,11 +63,7 @@ const PlantsPage = () => {
           <Show breakpoint="(max-width: 767px)">
             <FilterDrawer />
           </Show>
-          <ShopCarts
-            fontSize=".9rem"
-            w="98%"
-            data={renderData}
-          />
+          <ShopCarts fontSize=".9rem" w="98%" data={renderData} />
         </GridItem>
       </Grid>
     </>

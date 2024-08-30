@@ -1,5 +1,4 @@
 import { Button, HStack, Input, useNumberInput } from "@chakra-ui/react";
-import Btn from "../Btn";
 
 const TheNumberInput = () => {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
@@ -8,7 +7,6 @@ const TheNumberInput = () => {
       defaultValue: 2,
       min: 1,
       max: 6,
-      //   precision: 2,
     });
 
   const inc = getIncrementButtonProps();

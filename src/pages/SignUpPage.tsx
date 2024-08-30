@@ -1,21 +1,16 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import ColorSide from "../components/Sign/ColorSide";
-import FormSide from "../components/Sign/FormSide";
+import FormSide from "../components/Sign/SignInFormSide";
+import SignUpFormSide from "../components/Sign/SignUpFormSide";
 
 const SignUpPage = () => {
   return (
     <Grid templateColumns={{ base: "1fr", md: "55% 45%" }}>
       <GridItem>
-        <FormSide h="create account" b="sign up" NameI />
+        <SignUpFormSide />
       </GridItem>
       <GridItem>
-        <ColorSide
-          right
-          h="welcome back!"
-          t="To keep connected ith us please login with your personal info"
-          b="sign in"
-          to="/sign-in"
-        />
+        <ColorSide up />
       </GridItem>
     </Grid>
   );

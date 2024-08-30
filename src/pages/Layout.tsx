@@ -10,7 +10,7 @@ const Layout = () => {
       <Box
         minHeight="100dvh"
         marginTop={{ xl: "6vmax", lg: "8vmax", md: "10vmax" }}
-        marginBottom={{ xl: "6vmax", lg: "8vmax", md: "10vmax", base: "5vmax" }}
+        // marginBottom={{ xl: "6vmax", lg: "8vmax", md: "10vmax", base: "5vmax" }}
       >
         <Outlet />
       </Box>

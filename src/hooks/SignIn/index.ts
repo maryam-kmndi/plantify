@@ -1,10 +1,10 @@
 import api from "../../services/apiClient";
+import md5 from "md5";
 
 type LoginDataType = {
     email: string;
     password: string;
 } 
-const md5 = require("blueimp-md5");
 
 interface loginReqParameter extends LoginDataType {
     salt: string
