@@ -61,8 +61,7 @@ const Shopping = () => {
     <Box color="textColor">
       <HStack
         borderBottom="1px solid #464646"
-        px="1rem"
-        py="1.5rem"
+        p="1.5rem"
         justifyContent="space-between"
         _dark={{ borderColor: "#d7d7d7" }}
       >
@@ -73,10 +72,10 @@ const Shopping = () => {
           </Heading>
         </HStack>
         <Link to="/info">
-          <Btn>Confirm Payment</Btn>
+          <Btn>Buy Now</Btn>
         </Link>
       </HStack>
-      <Box py="2rem">
+      <Box py="2rem" minH="70dvh">
         {CartItem.map((plant) => (
           <Grid
             mx="1.5rem"
@@ -117,13 +116,13 @@ const Shopping = () => {
                   base: ".8rem",
                   xl: "1rem",
                 }}
-                py=".5rem"
+                py=".8rem"
               >
                 {plant.price}
               </Text>
             </GridItem>
-            <GridItem pl="5rem">
-              <HStack mx="auto" mb="1.5rem">
+            <GridItem>
+              <HStack placeContent="center" spacing="1rem" mb="1.5rem">
                 <Circle
                   cursor="pointer"
                   onClick={() => setDeleteItem(plant.id)}
@@ -138,7 +137,7 @@ const Shopping = () => {
                 >
                   <RiDeleteBin5Line size="1.2rem" />
                 </Circle>
-                <TheNumberInput />
+                <TheNumberInput count={plant.count} id={plant.id} />
               </HStack>
             </GridItem>
           </Grid>

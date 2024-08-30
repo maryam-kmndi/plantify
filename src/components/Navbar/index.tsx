@@ -184,7 +184,10 @@ const NavBar = () => {
                           </Button>
                           <Button
                             colorScheme="red"
-                            onClick={() => setCheckLogin(false)}
+                            onClick={() => {
+                              onclose;
+                              setCheckLogin(false);
+                            }}
                             ml={3}
                           >
                             Log Out

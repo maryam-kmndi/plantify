@@ -1,9 +1,4 @@
-import {
-  extendTheme,
-  StyleFunctionProps,
-  ThemeConfig,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { extendTheme, StyleFunctionProps, ThemeConfig } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 import "@fontsource/roboto";
 import "@fontsource/open-sans";
@@ -25,10 +20,6 @@ const theme = extendTheme({
   },
   semanticTokens: {
     colors: {
-      // primaryColor: "#79A141",
-      // secondryColor: "#FEFEFE",
-      // cartsColor: "#F5F3F4",
-      // textColor: "#464646",
       white: { _light: "#fff", _dark: "#121212" },
       primaryColor: { _light: "#79A141", _dark: "#556938" },
       cartsColor: { _light: "#F5F3F4", _dark: "#262425" },

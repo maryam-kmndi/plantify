@@ -1,17 +1,14 @@
-import { Button, HStack, Input, useNumberInput } from "@chakra-ui/react";
+import { Button, HStack, Text } from "@chakra-ui/react";
+import { useCartItems } from "../../store/useCartItem";
 
-const TheNumberInput = () => {
-  const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
-    useNumberInput({
-      step: 1,
-      defaultValue: 2,
-      min: 1,
-      max: 6,
-    });
+interface Props {
+  count: number;
+  id: number;
+}
 
-  const inc = getIncrementButtonProps();
-  const dec = getDecrementButtonProps();
-  const input = getInputProps();
+const TheNumberInput = ({ count, id }: Props) => {
+  const { setIncrement, setDecrement } = useCartItems();
+
   return (
     <HStack
       borderColor="primaryColor"
@@ -22,26 +19,27 @@ const TheNumberInput = () => {
       color="primaryColor"
     >
       <Button
-        {...dec}
         bg="none"
         color="primaryColor"
         fontSize="1.5rem"
         _hover={{ bg: "none" }}
+        onClick={() => setDecrement(id)}
       >
         -
       </Button>
-      <Input
-        {...input}
+      <Text
         border="none"
         fontSize={{ base: "1rem", md: "1.5rem" }}
         variant="unstyled"
-      />
+      >
+        {count}
+      </Text>
       <Button
-        {...inc}
         bg="none"
         color="primaryColor"
         fontSize="1.5rem"
         _hover={{ bg: "none" }}
+        onClick={() => setIncrement(id)}
       >
         +
       </Button>

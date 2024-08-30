@@ -40,8 +40,7 @@ const Favorites = () => {
   return (
     <Box color="textColor" my="2rem">
       <HStack
-        px="1rem"
-        py="1.5rem"
+        p="1.5rem"
         justifyContent="space-between"
         borderBottom="1px solid #464646"
         _dark={{ borderColor: "#d7d7d7" }}

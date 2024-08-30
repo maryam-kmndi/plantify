@@ -14,7 +14,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { plantsList } from "../data/plants";
 import { FiChevronLeft } from "react-icons/fi";
 import ProductDetail from "../components/ShopDetails/ProductDetail";
-import TheNumberInput from "../components/ShopDetails/TheNumberInput";
 import ProductsBtn from "../components/ShopDetails/ProductsBtn";
 
 const PlantDetailPage = () => {
@@ -22,9 +21,9 @@ const PlantDetailPage = () => {
   const { slug } = useParams();
   const plant = plantsList.find((p) => p.id === parseFloat(slug as string));
 
-  const newPrice = (price: string) => {
+  const upPrice = (price: string) => {
     const intPrice = parseInt(price);
-    const discounted = intPrice - (intPrice * 20) / 100;
+    const discounted = intPrice + (intPrice * 20) / 100;
     return discounted.toFixed(2) + "$";
   };
 
@@ -67,18 +66,12 @@ const PlantDetailPage = () => {
             <Heading color="textColor">{plant?.name}</Heading>
             <HStack spacing={5} fontWeight="600" fontSize="1.1rem" pb="1rem">
               <Text color="textColor" textDecoration="line-through">
-                {plant?.price}
+                {upPrice(plant?.price)}
               </Text>
-              <Text color="primaryColor">{newPrice(plant?.price)}</Text>
+              <Text color="primaryColor">{plant?.price}</Text>
             </HStack>
             <Divider />
             <ProductDetail plant={plant} />
-            <HStack spacing="3rem" pt="1rem">
-              <Text as="b" fontSize="1.2rem" color="textColor">
-                Quantity
-              </Text>
-              <TheNumberInput />
-            </HStack>
             <ProductsBtn id={parseFloat(slug as string)} />
           </VStack>
         </GridItem>

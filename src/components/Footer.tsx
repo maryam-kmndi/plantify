@@ -2,9 +2,9 @@ import { Box, HStack, Link, Image, useColorMode } from "@chakra-ui/react";
 import { TbPhone } from "react-icons/tb";
 import { RxTwitterLogo } from "react-icons/rx";
 import { AiOutlineInstagram } from "react-icons/ai";
-import { FaWhatsapp } from "react-icons/fa6";
 import whiteLogo from "../assets/لوگو سفید.png";
 import blackLogo from "../assets/لوگو مشکی.png";
+import { MdOutlineMail } from "react-icons/md";
 
 const Footer = () => {
   const { colorMode } = useColorMode();
@@ -31,7 +31,6 @@ const Footer = () => {
             />
           </Link>
         )}
-        {/* <Text>Plantify</Text> */}
         <HStack spacing={3}>
           <Link href="contact-us" _hover={{ transform: "scale(1.5)" }}>
             <TbPhone />
@@ -43,7 +42,7 @@ const Footer = () => {
             <AiOutlineInstagram />
           </Link>
           <Link href="contact-us" _hover={{ transform: "scale(1.5)" }}>
-            <FaWhatsapp />
+            <MdOutlineMail />
           </Link>
         </HStack>
       </HStack>

@@ -16,6 +16,7 @@ import {
 import { RxHamburgerMenu } from "react-icons/rx";
 import { NavData } from ".";
 import ColorModeSwitch from "./ColorModeSwitch";
+import { useCheckLogin } from "../../store/useCheckLogin";
 
 const NavMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,8 +27,8 @@ const NavMenu = () => {
     { id: 3, name: "Contact Us", href: "/contact-us" },
     { id: 4, name: "Favorite List", href: "/favorite-list" },
     { id: 5, name: "Shopping Cart", href: "/shopping-cart" },
-    { id: 6, name: "Log In", href: "/log-in" },
   ];
+  const { checkLogin, setCheckLogin } = useCheckLogin();
 
   return (
     <>
@@ -62,6 +63,27 @@ const NavMenu = () => {
                   </Link>
                 </ListItem>
               ))}
+              {!checkLogin ? (
+                <ListItem
+                  paddingY="5vw"
+                  textAlign="center"
+                  borderBottom="0.2px solid #ddd"
+                >
+                  <Link href={"/log-in"} _hover={hover} fontSize="xl">
+                    Log In
+                  </Link>
+                </ListItem>
+              ) : (
+                <ListItem
+                  paddingY="5vw"
+                  textAlign="center"
+                  borderBottom="0.2px solid #ddd"
+                >
+                  <Link href={"/"} _hover={hover} fontSize="xl">
+                    Log Out
+                  </Link>
+                </ListItem>
+              )}
             </List>
           </DrawerBody>
           <DrawerFooter bg="primaryColor" h="5vw" justifyContent="center">

@@ -84,22 +84,30 @@ const ShopCarts = ({ data, fontSize = "1rem", w = "80%" }: Props) => {
                     }
                   }}
                 >
-                  {!CartItem.find((q) => q.id === plant.id) && (
+                  {session ? (
+                    CartItem.find((q) => q.id === plant.id) ? (
+                      <SlBasketLoaded size="1.2rem" />
+                    ) : (
+                      <SlBasket size="1.2rem" />
+                    )
+                  ) : (
                     <SlBasket size="1.2rem" />
-                  )}
-                  {CartItem.find((q) => q.id === plant.id) && (
-                    <SlBasketLoaded size="1.2rem" />
                   )}
                 </HowerCircle>
                 <HowerCircle
                   top="32%"
                   handleClick={() => addFavorite(plant.id)}
                 >
-                  {!FavoriteList.find((q) => q.id === plant.id) && <LiaHeart />}
-                  {FavoriteList.find((q) => q.id === plant.id) && (
-                    <LiaHeartSolid />
+                  {session ? (
+                    FavoriteList.find((q) => q.id === plant.id) ? (
+                      <LiaHeartSolid />
+                    ) : (
+                      <LiaHeart />
+                    )
+                  ) : (
+                    <LiaHeart />
                   )}
-                </HowerCircle>
+                 </HowerCircle>
               </VStack>
               <Image
                 mx="auto"
