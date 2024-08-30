@@ -35,7 +35,7 @@ const ShopPreview = () => {
         >
           <ShopBtn active children="New Arrival" />
           <ShopBtn active children="Top Products" />
-          <ShopBtn active children="Best Sellers" />
+          <ShopBtn active children="Best Price" />
         </HStack>
         <ShopCarts data={plantsList.slice(0, 4)} />
       </VStack>

@@ -41,7 +41,7 @@ const Shopping = () => {
 
   const giftCodes: GiftCodes = {
     SEM20: 20,
-    SUMMER15: 15,
+    SUMMER25: 25,
     WELCOME: 10,
   };
 

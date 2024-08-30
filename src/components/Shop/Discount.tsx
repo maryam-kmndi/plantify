@@ -1,15 +1,27 @@
 import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogCloseButton,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogOverlay,
   Box,
   Button,
   Container,
   Heading,
   Image,
   Text,
+  useDisclosure,
   VStack,
 } from "@chakra-ui/react";
 import frame from "../../assets/discountFrame.png";
+import { useRef } from "react";
+import CopyableTextBox from "../CopyableTextBox";
 
 const Discount = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef<any>();
+
   return (
     <Container my="2.5rem">
       <Box
@@ -39,9 +51,29 @@ const Discount = () => {
             fontSize=".7rem"
             color="gray"
             _dark={{ bg: "textColor" }}
+            onClick={onOpen}
           >
             Share
           </Button>
+          <AlertDialog
+            isOpen={isOpen}
+            leastDestructiveRef={cancelRef}
+            onClose={onClose}
+          >
+            <AlertDialogOverlay>
+              <AlertDialogContent pt="2rem" borderRadius="30px">
+                <AlertDialogCloseButton />
+                <AlertDialogBody>
+                  <Text fontSize="lg" px="1rem" align="center">
+                    Sorry, This feauture is temporarily unavailable.
+                    <br />
+                    Use the discount code bellow to enjoy your saving!
+                    <CopyableTextBox />
+                  </Text>
+                </AlertDialogBody>
+              </AlertDialogContent>
+            </AlertDialogOverlay>
+          </AlertDialog>
         </VStack>
       </Box>
     </Container>
