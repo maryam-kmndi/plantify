@@ -73,9 +73,15 @@ const ShopCarts = ({ data, fontSize = "1rem", w = "80%" }: Props) => {
                 <HowerCircle
                   top="15%"
                   handleClick={() => {
-                    setCartItem(
-                      plantsList.find((q) => q.id === plant.id) as plantDataType
-                    );
+                    if (!session) {
+                      navigate("/log-in");
+                    } else {
+                      setCartItem(
+                        plantsList.find(
+                          (q) => q.id === plant.id
+                        ) as plantDataType
+                      );
+                    }
                   }}
                 >
                   {!CartItem.find((q) => q.id === plant.id) && (

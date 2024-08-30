@@ -42,7 +42,7 @@ const NavMenu = () => {
         <DrawerOverlay />
         <DrawerContent bg="white">
           <DrawerCloseButton paddingTop={4} />
-          <DrawerHeader borderBottomWidth="1px">Plantify</DrawerHeader>
+          <DrawerHeader py="2rem" borderBottomWidth="1px"></DrawerHeader>
           <DrawerBody>
             <List>
               {navData.map((nav) => (

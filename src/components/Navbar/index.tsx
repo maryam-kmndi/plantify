@@ -10,14 +10,17 @@ import {
   Image,
   Show,
   Text,
+  useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
-import logo from "../../assets/Logo.png";
+import colorLogo from "../../assets/لوگو رنگی.png";
+import whiteLogo from "../../assets/لوگو سفید.png";
+import blackLogo from "../../assets/لوگو مشکی.png";
 import { LiaHeart } from "react-icons/lia";
 import { SlBasket } from "react-icons/sl";
 import ColorModeSwitch from "./ColorModeSwitch";
 import NavMenu from "./NavMenu";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useCheckLogin } from "../../store/useCheckLogin";
 import { HiOutlineLogout } from "react-icons/hi";
 import { IoIosLogIn } from "react-icons/io";
@@ -46,13 +49,30 @@ const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef<any>();
 
+  const { colorMode } = useColorMode();
+  const navigate = useNavigate();
+
   return (
     <>
       <Show breakpoint="(max-width: 767px)">
-        <HStack justifyContent="space-between" bg="primaryColor">
-          <Text paddingLeft={4} color="white">
-            Plantify
-          </Text>
+        <HStack justifyContent="space-between" bg="primaryColor" py=".2rem">
+          {colorMode === "light" ? (
+            <Image
+              ml={4}
+              src={whiteLogo}
+              w={{ base: "21%", sm: "13%" }}
+              onClick={() => navigate("/")}
+              cursor="pointer"
+            />
+          ) : (
+            <Image
+              ml={4}
+              src={blackLogo}
+              w={{ base: "21%", sm: "13%" }}
+              onClick={() => navigate("/")}
+              cursor="pointer"
+            />
+          )}
           <NavMenu />
         </HStack>
       </Show>
@@ -66,19 +86,31 @@ const NavBar = () => {
             _dark={{ bg: "cartsColor" }}
             w="90%"
             borderRadius="75"
-            margin="0 auto "
+            mx="auto "
             boxShadow="lg"
-            marginTop={{ xl: "0", lg: "1vw", md: "1vw" }}
+            mt={{ md: "3vh", lg: "3vh" }}
             py="1.7rem"
           >
             <HStack paddingY={3} paddingX={8} justifyContent={"space-between"}>
-              <HStack spacing="3.5vmax">
-                <Image
-                  src={logo}
-                  w="18%"
-                  aspectRatio="16/5"
-                  objectFit="contain"
-                />
+              <HStack px="1rem" spacing="3.5vmax">
+                {colorMode === "light" ? (
+                  <Image
+                    src={colorLogo}
+                    w={{ md: "15%", lg: "12%" }}
+                    mr="1.5rem"
+                    onClick={() => navigate("/")}
+                    cursor="pointer"
+                  />
+                ) : (
+                  <Image
+                    src={whiteLogo}
+                    w={{ md: "15%", lg: "12%" }}
+                    mr="1.5rem"
+                    onClick={() => navigate("/")}
+                    cursor="pointer"
+                  />
+                )}
+
                 {navData.map((nav) => (
                   <NavLink to={nav.href} key={nav.id}>
                     <Text

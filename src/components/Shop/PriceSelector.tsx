@@ -10,40 +10,40 @@ import { useRef, useState } from "react";
 import { priceFilterType } from "./Filter";
 import { useActiveFilters } from "../../store/useActiveFilter";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { z } from "zod";
 
-// const Schema = z
-//   .object({
-//     min: z.number().optional(),
-//     // .number({
-//     //   invalid_type_error: "Min price must be provided and be a number",
-//     // })
-//     // .min(10, { message: "Price start at $10" })
-//     // .max(1000, { message: "Min price must be less than $1000" })
-//     max: z
-//       .number({
-//         invalid_type_error: "Max price must be provided and be a number",
-//       })
-//       .min(10, { message: "Max price must be at least $10" })
-//       .max(1000, { message: "Maximum price is $1000" })
-//       .optional(),
-//   })
-//   .refine(
-//     (data) => {
-//       if (data.min === undefined && data.max === undefined) {
-//         return true;
-//       }
-//       if (data.min !== undefined && data.max !== undefined) {
-//         return data.min <= data.max;
-//       }
+const Schema = z.object({
+  min: z.number().optional(),
+  // .number({
+  //   invalid_type_error: "Min price must be provided and be a number",
+  // })
+  // .min(10, { message: "Price start at $10" })
+  // .max(1000, { message: "Min price must be less than $1000" })
+  max: z
+    .number({
+      invalid_type_error: "Max price must be provided and be a number",
+    })
+    .min(10, { message: "Max price must be at least $10" })
+    .max(1000, { message: "Maximum price is $1000" })
+    .optional(),
+});
+// .refine(
+//   (data) => {
+//     if (data.min === undefined && data.max === undefined) {
 //       return true;
-//     },
-//     {
-//       message: "Min price must be less than or equal to max price",
-//       path: ["max"],
 //     }
-//   );
+//     if (data.min !== undefined && data.max !== undefined) {
+//       return data.min <= data.max;
+//     }
+//     return true;
+//   },
+//   {
+//     message: "Min price must be less than or equal to max price",
+//     path: ["max"],
+//   }
+// );
 
-// type FormData = z.infer<typeof Schema>;
+type FormData = z.infer<typeof Schema>;
 
 const PriceSelector = ({
   passPrice,
@@ -74,7 +74,7 @@ const PriceSelector = ({
             min: minValue,
           });
         } else {
-          setMinInpErr("min must smaller than max");
+          setMinInpErr("min must be smaller than max");
         }
       } else if (isMinFill) {
         const minValue = event.min as number;
