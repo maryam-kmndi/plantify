@@ -12,7 +12,7 @@ import {
 import photo from "../../assets/testimonial.jpg";
 import { TfiLayoutLineSolid } from "react-icons/tfi";
 import { BiSolidQuoteRight } from "react-icons/bi";
-const Testimonial = () => {
+const AboutMe = () => {
   return (
     <Grid
       w={{ md: "75%" }}
@@ -79,4 +79,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial;
+export default AboutMe;

@@ -12,7 +12,7 @@ import { plantDataType, plantsList } from "../data/plants";
 import { useEffect, useState } from "react";
 import { useActiveFilters } from "../store/useActiveFilter";
 
-const PlantsPage = () => {
+const ShopPage = () => {
   const { renderSearchData } = useSearchPlants();
   const { filterProductResult } = useFilterProduct();
   const { sortPlantsResult } = useSortPlants();
@@ -70,4 +70,4 @@ const PlantsPage = () => {
   );
 };
 
-export default PlantsPage;
+export default ShopPage;

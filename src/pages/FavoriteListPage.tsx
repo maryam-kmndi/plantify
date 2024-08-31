@@ -1,5 +1,3 @@
-import { Grid, GridItem } from "@chakra-ui/react";
-import ProfileCart from "../components/ProfileCart";
 import Favorites from "../components/Favorites";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,11 +11,7 @@ const FavoriteListPage = () => {
     !checkLogin && navigate("/log-in");
   }, [checkLogin]);
 
-  return (
-    
-        <Favorites />
-     
-  );
+  return <Favorites />;
 };
 
 export default FavoriteListPage;

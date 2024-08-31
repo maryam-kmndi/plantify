@@ -50,14 +50,12 @@ const LogInPage = () => {
   //submit hadler
   const onSubmit: SubmitHandler<FirstLevelAuthDataType> = async (e) => {
     //show user email
-    console.log(e);
 
     setLoading(true);
     //send user input email to know user might sign up or login and recieve salt or salt with challenge
     //fron hash endpoint
     const req: checkAuth = await checkUserStatus(e);
     //show response
-    console.log(req);
     if (req.success) {
       //if success=true this mean is user have an acount and recive salt and challenge from api and
       //redirect user to login page and set email and salt and challenge to login store

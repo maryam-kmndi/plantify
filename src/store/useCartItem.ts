@@ -87,7 +87,7 @@ export const useCartItems = create<State>()(
 
         set({
           CartItem: [...cart],
-          totalPrice: totalPri,
+          totalPrice:   totalPri,
         });
       },
       setDeleteItem: (arg) => {

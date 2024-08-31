@@ -20,7 +20,7 @@ const PlantDetailPage = () => {
   const navigate = useNavigate();
   const { slug } = useParams();
   const plant = plantsList.find((p) => p.id === parseFloat(slug as string));
-
+  
   const upPrice = (price: string) => {
     const intPrice = parseInt(price);
     const discounted = intPrice + (intPrice * 20) / 100;

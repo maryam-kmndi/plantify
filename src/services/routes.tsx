@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../pages/Layout";
 import HomePage from "../pages/HomePage";
-import PlantsPage from "../pages/PlantsPage";
+import ShopPage from "../pages/ShopPage";
 import PlantDetailPage from "../pages/PlantDetailPage";
 import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       { path: "/plants/:slug", element: <PlantDetailPage /> },
       {
         path: "/plants",
-        element: <PlantsPage />,
+        element: <ShopPage />,
         children: [{ path: "/plants/:slug", element: <PlantDetailPage /> }],
       },
     ],

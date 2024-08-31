@@ -21,11 +21,10 @@ import { Link } from "react-router-dom";
 import { useCartItems } from "../store/useCartItem";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import TheNumberInput from "./ShopDetails/TheNumberInput";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 const Shopping = () => {
   const { CartItem, totalPrice, setDeleteItem } = useCartItems();
-  console.log(totalPrice);
 
   const [giftCode, setGiftCode] = useState("");
   const [discount, setDiscount] = useState(0);
@@ -128,8 +127,9 @@ const Shopping = () => {
                   onClick={() => setDeleteItem(plant.id)}
                   bg="primaryColor"
                   color="cartsColor"
-                  size={{ base: "8vmax", md: "5vmax", lg: "3vmax" }}
+                  // size={{ base: "8vmax", md: "5vmax", lg: "3vmax" }}
                   fontSize={{ sm: "1.2rem", lg: "1rem" }}
+                  p="1rem"
                   _hover={{
                     transform: "scale(1.1)",
                     transition: "transform .1s ease-in",
